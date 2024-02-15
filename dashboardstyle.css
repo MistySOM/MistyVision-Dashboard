@@ -1,0 +1,95 @@
+body {
+    font-family: 'Work Sans';
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+
+.camera-column {
+    flex: 3;
+    margin: 5px;
+    /* border: 1px solid #ddd;
+    padding: 10px; */
+}
+
+.video-container {
+    margin-left: auto;
+}
+
+.info-display {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    margin: 5px;
+    text-align: left;
+}
+/*
+.info-display > div {
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 10px;
+}
+*/
+.current-time {
+
+}
+
+.current-time h2 {
+    color: gray;
+}
+
+.current-time p.time{
+    font-size: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+.video-rate {
+
+}
+
+.video-rate h2 {
+    color: gray;
+}
+
+.video-rate a.videorate{
+    font-size: 80px;
+}
+
+.drpai-rate {
+
+}
+
+.drpai-rate h2 {
+    color: gray;
+}
+
+.tracked-rate {
+
+}
+
+.tracked-rate h2 {
+    color: gray;
+}
+
+@keyframes rainbow {
+  0% { color: red; }
+  16.666% { color: orange; }
+  33.333% { color: yellow; }
+  50% { color: green; }
+  66.666% { color: blue; }
+  83.333% { color: indigo; }
+  100% { color: violet; }
+}
+
+marquee {
+  font-size: 20px;
+  animation: rainbow 6s infinite linear;
+}
+
