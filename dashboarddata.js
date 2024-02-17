@@ -1,22 +1,20 @@
-x = 10;
-
-document.getElementById("videoRate").innerHTML=x + " fps";
+let websocket = null;
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('https://mistywesttestingwebpubsub.webpubsub.azure.com/getWebPubSubToken')
+    fetch('https://cosmosdbmistyvisiontrafficdatatrigger.azurewebsites.net/api/getWebPubSubToken?code=FZtORSBboR2pNdLFU6RAwHmcXistCf1RPJAiNP_FnVAtAzFuM34AiQ==')
     .then(response => response.text())
     .then(url => {
-        const websocket = new WebSocket(url);
+        websocket = new WebSocket(url);
 
         websocket.onopen = () => {
             console.log('Connection established');
-            websocket.send(JSON.stringify({ type: 'joinGroup', group: 'dashboard' }));
+
         };
 
         websocket.onmessage = event => {
             const message = JSON.parse(event.data);
             console.log('Message received:', message);
-            // Process the message as needed
+            // add code here Victor
         };
 
         websocket.onerror = error => {
@@ -29,5 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Fetching Web PubSub token failed:', error));
 });
+
+x = 10;
+document.getElementById("videoRate").innerHTML=x + " fps";
 
 console.log()
