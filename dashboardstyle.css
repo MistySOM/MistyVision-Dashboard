@@ -45,7 +45,7 @@ body {
 }
 
 .current-time p.time{
-    font-size: 80px;
+    font-size: 50px;
     margin: 0;
     padding: 0;
 }
@@ -59,7 +59,7 @@ body {
 }
 
 .video-rate a.videorate{
-    font-size: 80px;
+    font-size: 50px;
 }
 
 .drpai-rate {
@@ -70,12 +70,20 @@ body {
     color: gray;
 }
 
+.drpai-rate a.drpairate{
+    font-size: 50px;
+}
+
 .tracked-rate {
 
 }
 
 .tracked-rate h2 {
     color: gray;
+}
+
+.tracked-rate a.trackedrate{
+    font-size: 50px;
 }
 
 @keyframes rainbow {

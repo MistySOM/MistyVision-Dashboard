@@ -20,7 +20,6 @@
           <img src="https://wiki.mistysom.com/files/img/logo.png" width="200">
       </header>
         <main>
-            <script>console.log("Hello")</script>
             <div class="row">
                 <div class="camera-column">
                     <div class="video-container">
@@ -42,17 +41,23 @@
                 <div class="info-display">
                     <div class="current-time">
                         <h2>Current Time</h2>
-                        <p class="time">12:15</p>
+                        <p class="time" id="timePortion"></p>
                     </div>
                     <div class="video-rate">
                         <h2>Video Rate</h2>
                         <a class="videorate" id="videoRate"></a>
                     </div>
-                    <div class="drpai-rate"><h2>DRPAI Rate</h2></div>
-                    <div class="tracked-rate"><h2>Tracked/60min</h2></div>
+                    <div class="drpai-rate">
+                        <h2>DRPAI Rate</h2>
+                        <a class="drpairate" id="drpaiRate"></a>
+                    </div>
+                    <div class="tracked-rate">
+                        <h2>Tracked/60min</h2>
+                        <a class="trackedrate" id="trackedRate"></a>
+                    </div>
                 </div>
             </div>
-            <marquee>Work in Progress~~</marquee>
+            <!-- <marquee>Work in Progress~~</marquee> -->
         </main>
         <footer>
           <h1>MistySOM Live Video Stream</h1>
