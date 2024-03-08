@@ -31,7 +31,7 @@
                             fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
                               console.log(response.url);
                               const source = { src:response.url, type:'application/x-mpegURL' };
-                              const videojs_player = videojs('video-js-tag', {
+                              const videojs_player = videojs('hls-video', {
                                   autoplay: 'muted',
                                   liveui: true,
                                   inactivityTimeout: 0,
