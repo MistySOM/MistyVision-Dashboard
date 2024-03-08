@@ -79,7 +79,6 @@ main {
 .row {
     display: flex;
     height: 100%;
-
 }
 
 .video-column {
@@ -96,11 +95,8 @@ main {
 
 .video-container {
     overflow: hidden;
-    width: 100%;
+    width: min-content;
     margin-left: 170px;
-}
-
-.video-js {
     border: 2px solid #5cfdc6;
     border-radius: 20px;
 }
