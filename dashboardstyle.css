@@ -70,13 +70,16 @@ body {
 main {
     flex-grow: 1;
     margin-left: 150px;
+    padding-top: 140px;
     height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .row {
     display: flex;
     height: 100%;
-    align-items: center;
+
 }
 
 .video-column {
@@ -86,8 +89,7 @@ main {
 }
 
 .location {
-
-    margin-left: 130px;
+    margin-left: 170px;
     color: white;
     font-size: 17px;
 }
@@ -95,7 +97,7 @@ main {
 .video-container {
     overflow: hidden;
     width: 100%;
-    margin-left: 130px;
+    margin-left: 170px;
 }
 
 .video-js {
@@ -106,29 +108,30 @@ main {
 .vertical-divider {
     position: relative;
     width: 2px;
-    height: 75%;
+    height: 85%;
     background-color: #555;
     margin-left: -1px;
 }
 
-.current-time,
-.video-rate,
-.drpai-rate {
+.current-time p,
+.video-rate p,
+.drpai-rate p {
     display: flex;
-    margin-left: 130px;
+    margin-left: 170px;
+    margin-bottom: 0px;
     color: #5cfdc6;
-    height: 3vh;
+    height: 10px;
     font-size: 17px;
 }
 
-.current-time p.time,
-.video-rate a.videorate,
-.drpai-rate a.drpairate,
-.tracked-rate a.trackedrate {
-    font-size: 20px;
+.time,
+.videorate,
+.drpairate {
+    font-size: 17px;
     margin: 0;
     padding: 0;
     color: white;
+    height: 20px;
 }
 
 .graph-column {
@@ -137,16 +140,34 @@ main {
     flex-direction: column;
 }
 
-.tracked-rate {
-    display: flex;
-    margin-right: 130px;
+.tracked-rate p {
+    text-align: right;
+    margin-right: 170px;
     color: #5cfdc6;
     font-size: 17px;
 }
 
+.trackedrate {
+    font-size: 17px;
+    margin: 0;
+    padding: 0;
+    color: white;
+    height: 20px;
+}
+
+.graph {
+    width: 640px;
+    height: 480px;
+    border: 2px solid #5cfdc6;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: 170px;
+
+}
+
 .graph-title {
     display: flex;
-    align-items: center;
+    margin-left: 200px;
     color: #5cfdc6;
     font-size: 17px;
 }
