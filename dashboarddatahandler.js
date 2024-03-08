@@ -8,7 +8,7 @@ export function handleWebSocketMessage(event) {
         const timestamp = message.timestamp || "N/A";
         const trackedPerHour = parseInt(message["tracked_per_hour"]) || -1;
 
-        const timePortion = timestamp?.split('T')[1]?.split('.')[0] : "N/A";
+        const timePortion = timestamp ? timestamp.split('T')[1] ? timestamp.split('T')[1].split('.')[0] : "N/A" : "N/A";
 
         const pstDateTime = new Date(timestamp).toLocaleString('en-US', {
             timeZone: 'America/Vancouver',

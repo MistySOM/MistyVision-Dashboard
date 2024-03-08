@@ -45,16 +45,29 @@
                           <p>KINGSWAY & FRASER</p>
                       </div>
                       <div class="video-container">
-                          <video id="hls-video" class="video-js" width="700" height="480" controls data-setup='{"autoplay":"muted", "muted":true, "liveui": true, "inactivityTimeout": 0}'>
-                              <source src="https://mh11media-uswe.streaming.media.azure.net/1fb2bb0b-ccd3-4c7c-b05e-fa4b1da2646d/manifest.ism/manifest(format=m3u8-cmaf)" type="application/x-mpegURL" />
+                          <video id="hls-video" class="video-js" width="700" height="480" controls>
                               <p>
                                   To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
                               </p>
+                              <script>
+                                  fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
+                                      console.log(response.url);
+                                      const source = { src:response.url, type:'application/x-mpegURL' };
+                                      const videojs_player = videojs('hls-video', {
+                                          autoplay: 'muted',
+                                          liveui: true,
+                                          inactivityTimeout: 0,
+                                          sources: [ source ]
+                                        }, function() {
+                                        console.log('Video-js is ready!');
+                                      });
+                                  });
+                              </script>
                               <style>
                                   .video-js .vjs-volume-panel,
                                   .video-js .vjs-picture-in-picture-control
                                   {
-                                    display: none;
+                                  display: none;
                                   }
                               </style>
                           </video>
@@ -85,5 +98,5 @@
               </div>
           </main>
       </div>
-      </body>
+  </body>
 </html>
