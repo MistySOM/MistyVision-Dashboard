@@ -8,33 +8,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="dashboardstyle.css">
+
     <!-- Video JS -->
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-    
+
   </head>
-  <body style="font-family: 'Work Sans';background:black; color:white; text-align:center">
-    <header>
-      <img src="https://wiki.mistysom.com/files/img/logo.png" width="200">
-    </header>
-    <main>
-      <video id="hls-video" class="video-js" width="640" height="480" controls data-setup='{"autoplay":"muted", "muted":true, "liveui": true, "inactivityTimeout": 0}'>
-        <source src="https://mh11media-uswe.streaming.media.azure.net/1fb2bb0b-ccd3-4c7c-b05e-fa4b1da2646d/manifest.ism/manifest(format=m3u8-cmaf)" type="application/x-mpegURL" />
-        <p>
-            To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
-        </p>          
-        <style>
-          .video-js .vjs-volume-panel,
-          .video-js .vjs-picture-in-picture-control
-          {
-            display: none;
-          }
-        </style>
-      </video>
-    </main>
-    <footer>
-      <h1>MistySOM Live Video Stream</h1>
-    </footer>
+  <body>
+      <header>
+          <img src="https://wiki.mistysom.com/files/img/logo.png" width="200">
+      </header>
+        <main>
+            <div class="row">
+                <div class="camera-column">
+                    <div class="video-container">
+                        <video id="hls-video" class="video-js" width="640" height="480" controls>
+                          <p>
+                              To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+                          </p>
+                          <script>
+                            fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
+                              console.log(response.url);
+                              const source = { src:response.url, type:'application/x-mpegURL' };
+                              const videojs_player = videojs('hls-video', {
+                                  autoplay: 'muted',
+                                  liveui: true,
+                                  inactivityTimeout: 0,
+                                  sources: [ source ]
+                                }, function() {
+                                console.log('Video-js is ready!');
+                              });
+                            });
+                          </script>                          
+                          <style>
+                            .video-js .vjs-volume-panel,
+                            .video-js .vjs-picture-in-picture-control
+                            {
+                              display: none;
+                            }
+                          </style>
+                      </video>
+                    </div>
+                </div>
+                <div class="info-display">
+                    <div class="current-time">
+                        <h2>Current Time</h2>
+                        <p class="time" id="timePortion"></p>
+                    </div>
+                    <div class="video-rate">
+                        <h2>Video Rate</h2>
+                        <a class="videorate" id="videoRate"></a>
+                    </div>
+                    <div class="drpai-rate">
+                        <h2>DRPAI Rate</h2>
+                        <a class="drpairate" id="drpaiRate"></a>
+                    </div>
+                    <div class="tracked-rate">
+                        <h2>Tracked/60min</h2>
+                        <a class="trackedrate" id="trackedRate"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- <marquee>Work in Progress~~</marquee> -->
+        </main>
+        <footer>
+          <h1>MistySOM Live Video Stream</h1>
+        </footer>
+      <script src="dashboarddata.js"></script>
   </body>
 </html>
