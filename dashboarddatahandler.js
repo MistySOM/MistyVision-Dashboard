@@ -21,7 +21,7 @@ export function handleWebSocketMessage(event) {
     document.getElementById("videoRate").innerHTML = videoRate + " FPS";
     document.getElementById("drpaiRate").innerHTML = drpaiRate + " FPS";
     document.getElementById("timePortion").innerHTML = pstDateTime;
-    document.getElementById("trackedRate").innerHTML = trackedPerHour + " OBJECTS / DAY";
+    document.getElementById("trackedRate").innerHTML = trackedPerHour + " VEHICLES / DAY";
 
     } catch (error) {
             console.error('Error parsing WebSocket message:', error);
