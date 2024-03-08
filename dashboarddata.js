@@ -1,3 +1,5 @@
+import {handleWebSocketMessage} from './dashboarddatahandler.js';
+
 let websocket = null;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -8,33 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         websocket.onopen = () => {
             console.log('Connection established');
-
         };
 
-        websocket.onmessage = event => {
-            const message = JSON.parse(event.data);
-            console.log('Message received:', message);
-
-            const videoRate = parseInt(message["video_rate"]);
-            const drpaiRate = parseInt(message["drpai_rate"]);
-            const timestamp = message.timestamp;
-            const timePortion = timestamp.split('T')[1].split('.')[0];
-            const trackedPerHour = parseInt(message["tracked_per_hour"]);
-
-            const pstDateTime = new Date(timestamp).toLocaleString('en-US', {
-                    timeZone: 'America/Vancouver',
-                    hour12: false,
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    second: 'numeric'
-                });
-
-            document.getElementById("videoRate").innerHTML= videoRate + " fps";
-            document.getElementById("drpaiRate").innerHTML= drpaiRate + " fps";
-            document.getElementById("timePortion").innerHTML= pstDateTime;
-            document.getElementById("trackedRate").innerHTML = trackedPerHour
-
-        };
+        websocket.onmessage = handleWebSocketMessage;
 
         websocket.onerror = function(event) {
             console.error('WebSocket error:', event);
@@ -46,6 +24,4 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Fetching Web PubSub token failed:', error));
 });
-
-
 console.log()

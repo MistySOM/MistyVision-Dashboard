@@ -1,80 +1,89 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <meta charset="utf-8">
-    <title>MistySOM Video Stream</title>
+      <meta charset="utf-8">
+      <title>MistySOM Video Stream</title>
 
-    <!-- WorkSans Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dashboardstyle.css">
+      <!-- WorkSans Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 
-    <!-- Video JS -->
-    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+      <!-- MistyVision Dashboard CSS -->
+      <link rel="stylesheet" href="dashboardstyle.css">
 
+      <!-- Video JS -->
+      <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+      <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+      <!-- Dashboard Live Data JS -->
+      <script type="module" src="dashboarddata.js"></script>
   </head>
   <body>
-      <header>
-          <img src="https://wiki.mistysom.com/files/img/logo.png" width="200">
-      </header>
-        <main>
-            <div class="row">
-                <div class="camera-column">
-                    <div class="video-container">
-                        <video id="hls-video" class="video-js" width="640" height="480" controls>
-                          <p>
-                              To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
-                          </p>
-                          <script>
-                            fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
-                              console.log(response.url);
-                              const source = { src:response.url, type:'application/x-mpegURL' };
-                              const videojs_player = videojs('hls-video', {
-                                  autoplay: 'muted',
-                                  liveui: true,
-                                  inactivityTimeout: 0,
-                                  sources: [ source ]
-                                }, function() {
-                                console.log('Video-js is ready!');
-                              });
-                            });
-                          </script>                          
-                          <style>
-                            .video-js .vjs-volume-panel,
-                            .video-js .vjs-picture-in-picture-control
-                            {
-                              display: none;
-                            }
-                          </style>
-                      </video>
-                    </div>
-                </div>
-                <div class="info-display">
-                    <div class="current-time">
-                        <h2>Current Time</h2>
-                        <p class="time" id="timePortion"></p>
-                    </div>
-                    <div class="video-rate">
-                        <h2>Video Rate</h2>
-                        <a class="videorate" id="videoRate"></a>
-                    </div>
-                    <div class="drpai-rate">
-                        <h2>DRPAI Rate</h2>
-                        <a class="drpairate" id="drpaiRate"></a>
-                    </div>
-                    <div class="tracked-rate">
-                        <h2>Tracked/60min</h2>
-                        <a class="trackedrate" id="trackedRate"></a>
-                    </div>
-                </div>
-            </div>
-            <!-- <marquee>Work in Progress~~</marquee> -->
-        </main>
-        <footer>
-          <h1>MistySOM Live Video Stream</h1>
-        </footer>
-      <script src="dashboarddata.js"></script>
-  </body>
+      <div class="container">
+          <div class="sidebar">
+              <img src="MISTYVISION_SYMBOL2%20cropped.png" alt="MistyVision Logo" class="logo1">
+              <p>MistyVision</p>
+              <div class="sidebar-divider" style="top: 190px;"></div>
+              <ul>
+                  <li><a href="https://dash.mistysom.com/">Dashboard</a></li>
+                  <li><a href="https://wiki.mistysom.com/">Support</a></li>
+                  <li><a href="https://www.mistywest.com/contact/">Contact Us</a></li>
+              </ul>
+              <div class="sidebar-divider" style="bottom: 150px;"></div>
+              <a href="https://www.mistywest.com/" target="_blank" class="logo2-link">
+                  <img src="MistyWest_logo_%23222_background.png" alt="MistyWest Logo" class="logo2">
+              </a>
+          </div>
+          <main>
+              <div class="row">
+                  <div class="video-column">
+                      <div class="video-status">
+
+                      </div>
+                      <div class="location">
+                          <p>KINGSWAY & FRASER</p>
+                      </div>
+                      <div class="video-container">
+                          <video id="hls-video" class="video-js" width="700" height="480" controls data-setup='{"autoplay":"muted", "muted":true, "liveui": true, "inactivityTimeout": 0}'>
+                              <source src="https://mh11media-uswe.streaming.media.azure.net/1fb2bb0b-ccd3-4c7c-b05e-fa4b1da2646d/manifest.ism/manifest(format=m3u8-cmaf)" type="application/x-mpegURL" />
+                              <p>
+                                  To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+                              </p>
+                              <style>
+                                  .video-js .vjs-volume-panel,
+                                  .video-js .vjs-picture-in-picture-control
+                                  {
+                                    display: none;
+                                  }
+                              </style>
+                          </video>
+                      </div>
+                      <div class="current-time">
+                          <p>CURRENT TIME :</p>
+                          <a class="time" id="timePortion"></a>
+                      </div>
+                      <div class="video-rate">
+                          <p>VIDEO RATE :</p>
+                          <a class="videorate" id="videoRate"></a>
+                      </div>
+                      <div class="drpai-rate">
+                          <p>DRPAI RATE :</p>
+                          <a class="drpairate" id="drpaiRate"></a>
+                      </div>
+                  </div>
+                  <div class="vertical-divider"></div>
+                  <div class="graph-column">
+                      <div class="tracked-rate">
+                          <p>AVERAGE COUNT | </p>
+                          <a class="trackedrate" id="trackedRate"></a>
+                      </div>
+                      <div class="graph-title">
+                          <p>OBJECT TYPES AND COUNT IN LAST 24 HOURS</p>
+                      </div>
+                  </div>
+              </div>
+          </main>
+      </div>
+      </body>
 </html>
