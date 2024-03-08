@@ -18,6 +18,12 @@
 
       <!-- Dashboard Live Data JS -->
       <script type="module" src="dashboarddata.js"></script>
+
+      <!-- Chart.js -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <!-- Dashboard Chart -->
+      <script src="dashboardchart.js"></script>
   </head>
   <body>
       <div class="container">
@@ -83,15 +89,12 @@
                       </div>
                   </div>
                   <div class="vertical-divider"></div>
-                  <div class="graph-column">
+                  <div class="chart-column">
                       <div class="tracked-rate">
                           <p>AVERAGE COUNT<span class="trackedrate" id="trackedRate"></span></p>
                       </div>
-                      <div class="graph">
-
-                      </div>
-                      <div class="graph-title">
-                          <p>OBJECT TYPES AND COUNT IN LAST 24 HOURS</p>
+                      <div class="chart">
+                          <canvas id="dashboardChart"></canvas>
                       </div>
                   </div>
               </div>
