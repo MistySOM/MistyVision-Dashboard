@@ -134,6 +134,7 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
+
 }
 
 .tracked-rate p {
@@ -152,5 +153,15 @@ main {
 }
 
 .chart {
+    width: 600px; /* Set your desired width */
+    height: 600px;
+    margin-left: 50px;
+}
 
+.legend-circle {
+    display: inline-block;
+    width: 10px; /* Set your desired width */
+    height: 10px; /* Set your desired height */
+    border-radius: 50%;
+    margin-right: 5px; /* Adjust spacing between circle and text */
 }
