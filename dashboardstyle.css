@@ -153,9 +153,9 @@ main {
 }
 
 .chart {
-    width: 620px; /* Set your desired width */
-    height: 620px;
-    margin-left: 50px;
+    width: 640px; /* Set your desired width */
+    height: 640px;
+    margin-left: 40px;
 }
 
 .legend-circle {

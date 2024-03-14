@@ -3,6 +3,7 @@ import DashboardDataModel from './dashboarddatamodel.js';
 export default class ChartViewModel {
     data = [];
     labels = [];
+    totalCount = 0;
     subscribe = function(listener){
         this.listeners.push(listener);
     }
@@ -22,6 +23,7 @@ export default class ChartViewModel {
     updateChartData() {
         this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];
         this.labels = ["CARS", "TRUCKS", "BUSES"];
+        this.averageCount = this.model.totalCount;
         this.notify();
     }
 }
