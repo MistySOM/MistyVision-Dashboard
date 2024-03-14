@@ -23,7 +23,7 @@ export default class ChartViewModel {
     updateChartData() {
         this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];
         this.labels = ["CARS", "TRUCKS", "BUSES"];
-        this.averageCount = this.model.totalCount;
+        this.totalCount = this.model.totalCount;
         this.notify();
     }
 }
