@@ -11,7 +11,14 @@ export default class DataDisplayView {
     }
 
     updateDisplay() {
-        document.getElementById("timePortion").innerHTML = this.model.pstDateTime;
+        this.pstDateTime = new Date(this.model.timestamp).toLocaleString('en-US', {
+            timeZone: 'America/Vancouver',
+            hour12: false,
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric'
+        });
+        document.getElementById("timePortion").innerHTML = this.pstDateTime;
         document.getElementById("videoRate").innerHTML = this.model.videoRate + " FPS";
         document.getElementById("drpaiRate").innerHTML = this.model.drpaiRate + " FPS";
     }

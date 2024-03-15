@@ -66,20 +66,6 @@ export default class DashboardDataModel {
             this.busCount = isNaN(parseInt(this.trackHistory.bus)) ? -1 : parseInt(this.trackHistory.bus);
             this.truckCount = isNaN(parseInt(this.trackHistory.truck)) ? -1 : parseInt(this.trackHistory.truck);
 
-            this.timePortion = this.timestamp ? this.timestamp.split('T')[1] ? this.timestamp.split('T')[1].split('.')[0] : "N/A" : "N/A";
-
-            this.pstDateTime = new Date(this.timestamp).toLocaleString('en-US', {
-                timeZone: 'America/Vancouver',
-                hour12: false,
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric'
-            });
-
-//            document.getElementById("timePortion").innerHTML = this.pstDateTime;
-//            document.getElementById("videoRate").innerHTML = this.videoRate + " FPS";
-//            document.getElementById("drpaiRate").innerHTML = this.drpaiRate + " FPS";
-
             this.notify();
         } catch (error) {
             console.error('Error parsing WebSocket message:', error);

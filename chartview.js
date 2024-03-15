@@ -15,7 +15,6 @@ export default class ChartView {
                 data: this.viewModel.data,
                 backgroundColor: ['#1400FA', '#7857F7', '#5CFDC6']
             }],
-
             labels: this.viewModel.labels
         };
 
@@ -92,33 +91,29 @@ export default class ChartView {
                 chart.data.datasets.forEach((dataset, i) => {
                     chart.getDatasetMeta(i).data.forEach((datapoint, index) => {
 
-                        const { x, y } = datapoint.tooltipPosition();
-
+                        const {x,y} = datapoint.tooltipPosition();
                         const halfwidth = chart.width/2;
                         const halfheight = chart.height/2;
 
-                        const xLabel = x >= halfwidth ? x + 25 : x - 25;
-                        const yLabel = y >= halfheight ? y + 25 : y - 25;
+                        const xLabel = x >= halfwidth ? x + 35 : x - 40;
+                        const yLabel = y >= halfheight ? y + 10 : y - 10;
 
                         const textWidth = ctx.measureText(chart.data.labels[index]).width;
                         ctx.font = '20px work sans';
                         ctx.fillStyle = 'gray';
-                        ctx.textAlign = 'ceter';
+                        ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
                         ctx.fillText(this.viewModel.data[index], xLabel, yLabel);
                     })
                 })
-
             }
-
-
         }
 
         this.dashboardChart = new Chart(chart, {
             type: 'doughnut',
             data: data,
             options: options,
-            plugins: [centreText]
+            plugins: [centreText, arcLabels]
         });
     }
 
