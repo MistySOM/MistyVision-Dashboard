@@ -4,6 +4,9 @@ export default class ChartViewModel {
     data = [];
     labels = [];
     totalCount = 0;
+    carCount = 0;
+    truckCount = 0;
+    busCount = 0;
     subscribe = function(listener){
         this.listeners.push(listener);
     }
@@ -24,6 +27,9 @@ export default class ChartViewModel {
         this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];
         this.labels = ["CARS", "TRUCKS", "BUSES"];
         this.totalCount = this.model.totalCount;
+        this.carCount = this.model.carCount;
+        this.truckCount = this.model.truckCount;
+        this.busCount = this.model.busCount;
         this.notify();
     }
 }

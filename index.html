@@ -16,17 +16,20 @@
       <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
       <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
-      <!-- Dashboard Live Data JS -->
-      <script type="module" src="dashboardengine.js"></script>
-
       <!-- Chart.js -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-      <!-- Dashboard Chart -->
+      <!-- Dashboard Live Data Engine JS -->
+      <script type="module" src="dashboardengine.js"></script>
+
+      <!-- Dashboard Chart View Model JS -->
+      <script type="module" src="chartviewmodel.js"></script>
+
+      <!-- Dashboard Chart JS -->
       <script type="module" src="chartview.js"></script>
 
-      <!-- Dashboard Data handler -->
-      <script type="module" src="chartviewmodel.js"></script>
+      <!-- Dashboard Data Display View JS -->
+      <script type="module" src="datadisplayview.js"></script>
   </head>
   <body>
       <div class="container">
@@ -93,11 +96,6 @@
                   </div>
                   <div class="vertical-divider"></div>
                   <div class="chart-column">
-                      <!--
-                      <div class="tracked-rate">
-                          <p>TOTAL COUNT<span class="trackedrate" id="trackedRate"></span></p>
-                      </div>
-                      -->
                       <div class="chart">
                           <canvas id="dashboardChart"></canvas>
                       </div>
