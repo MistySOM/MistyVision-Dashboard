@@ -21,6 +21,9 @@ export default class ChartView {
         const options = {
             cutout: '90%',
             rotation: 90,
+//            onHover: function(event, elements) {
+//                event.stopPropagation();
+//            },
             layout: {
                 padding: {
                     top: 40,
@@ -85,20 +88,22 @@ export default class ChartView {
 
         const arcLabels = {
             id: 'arcLabels',
-            afterDraw: (chart) => {
+            afterDatasetsDraw: (chart) => {
                 const ctx = chart.ctx;
 
                 chart.data.datasets.forEach((dataset, i) => {
                     chart.getDatasetMeta(i).data.forEach((datapoint, index) => {
 
                         const {x,y} = datapoint.tooltipPosition();
+
                         const halfwidth = chart.width/2;
                         const halfheight = chart.height/2;
+                        const angle = Math.atan2(y - halfheight, x - halfwidth);
+                        const radius = Math.min(halfwidth, halfheight) * 0.12;
 
-                        const xLabel = x >= halfwidth ? x + 35 : x - 40;
-                        const yLabel = y >= halfheight ? y + 10 : y - 10;
+                        const xLabel = x + radius * Math.cos(angle);
+                        const yLabel = y + radius * Math.sin(angle);
 
-                        const textWidth = ctx.measureText(chart.data.labels[index]).width;
                         ctx.font = '20px work sans';
                         ctx.fillStyle = 'gray';
                         ctx.textAlign = 'center';
@@ -106,6 +111,21 @@ export default class ChartView {
                         ctx.fillText(this.viewModel.data[index], xLabel, yLabel);
                     })
                 })
+            }
+        }
+
+        const overlappingArcSegments = {
+            id: 'overlappingArcSegments',
+            afterDatasetsDraw: (chart) => {
+                const ctx = chart.ctx;
+
+                const arcElement = chart.getDatasetMeta(0).data[0];
+                console.log(arcElement);
+//                const x = chart.getDatasetMeta(0).data[0].x;
+//                const y = chart.getDatasetMeta(0).data[0].y;
+//                const angle = MATH.PI/180;
+                ctx.save();
+//                ctx.arc(x, y, 10, 0, angle*360, false)
             }
         }
 

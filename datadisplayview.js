@@ -18,6 +18,10 @@ export default class DataDisplayView {
             minute: 'numeric',
             second: 'numeric'
         });
+        if (this.pstDateTime.startsWith('24')) {
+            this.pstDateTime = '00' + this.pstDateTime.slice(2);
+        }
+
         document.getElementById("timePortion").innerHTML = this.pstDateTime;
         document.getElementById("videoRate").innerHTML = this.model.videoRate + " FPS";
         document.getElementById("drpaiRate").innerHTML = this.model.drpaiRate + " FPS";
