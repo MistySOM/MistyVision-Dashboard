@@ -3,31 +3,32 @@ body {
     background-color: #191C20;
     color: white;
     margin: 0;
-    height: 100vh;
+    height: 100%;
 }
 
 .container {
     display: flex;
-    min-height: 100vh;
+    min-height: 100%;
+    overflow: auto;
 }
 
 .sidebar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    width: 7.5vw;
+    height: 100%;
+    width: 7.5em;
     background-color: #222;
     color: #fff;
-    padding: 20px;
+    padding: 1.3em;
     position: fixed;
     z-index: 1;
-    font-size: 19px;
-    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
+    font-size: 1.1em;
+    box-shadow: 0.7em 0 1.3em rgba(0, 0, 0, 0.5);
 }
 
 .sidebar ul li:first-child a {
-    margin-top: 195px;
+    margin-top: 11em;
 }
 
 .sidebar ul li a {
@@ -35,46 +36,52 @@ body {
     display: block;
     text-decoration: none;
     color: white;
-    font-size: 18px;
-    padding: 10px;
+    font-size: 1em;
+    padding: 0.6em 1em;
     background-color: transparent;
-    border-radius: 8px;
+    border-radius: 0.8em;
     transition: background-color 0.3s, color 0.3s;
-    margin-bottom: 5px;
+    margin-bottom: 0.5em;
 }
 
 .sidebar ul {
     list-style: none;
-    padding: 0;
+    padding: 0em;
 }
 
 .sidebar ul li a:hover {
-    background-color: #555; /* Hover color for buttons */
+    background-color: #555;
 }
 
 .logo1 {
-    width: 4vw;
+    width: 4em;
 }
 
 .logo2-link {
-    position: absolute;
-    bottom: 5.5vh;
+    bottom: 5em;
 }
 
 .logo2 {
-    width: 7vw;
+    width: 8em;
 }
 
-.sidebar-divider {
-    position: absolute;
-    width: calc(85%);
-    border-top: 1px solid #555;
+.sidebar-top {
+    width: 110%;
+    border-top: 0.1em solid #555;
+    margin-top: 0em;
+}
+
+.sidebar-bottom {
+    width: 110%;
+    border-top: 0.1em solid #555;
+    margin-top: 17em;
+    margin-bottom: 0.5em;
 }
 
 main {
     flex-grow: 1;
-    margin-left: 150px;
-    padding-top: 100px;
+    margin-left: 9em;
+    padding-top: 6em;
     height: 100vh;
     overflow: hidden;
     box-sizing: border-box;
@@ -89,50 +96,50 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding-top: 35px;
+    padding-top: 2.2em;
 }
 
 .location {
-    margin-left: 170px;
+    margin-left: 9em;
     color: white;
-    font-size: 17px;
+    font-size: 1.1em;
 }
 
 .video-container {
     overflow: hidden;
     width: min-content;
-    margin-left: 170px;
-    border: 2px solid #5cfdc6;
-    border-radius: 20px;
+    margin-left: 9.8em;
+    border: 0.2em solid #5cfdc6;
+    border-radius: 1em;
 }
 
 .vertical-divider {
     position: relative;
-    width: 2px;
+    width: 0.2em;
     height: 87%;
     background-color: #555;
-    margin-left: -1px;
+    margin-left: -0.1em;
 }
 
 .current-time p,
 .video-rate p,
 .drpai-rate p {
     display: flex;
-    margin-left: 170px;
-    margin-bottom: 0px;
+    margin-left: 9em;
+    margin-bottom: 0em;
     color: #5cfdc6;
-    height: 10px;
-    font-size: 17px;
+    height: 0.8em;
+    font-size: 1.1em;
 }
 
 .time,
 .videorate,
 .drpairate {
-    font-size: 17px;
+    font-size: 1.1em;
     margin: 0;
     padding: 0;
     color: white;
-    height: 20px;
+    height: 1.1em;
 }
 
 .chart-column {
@@ -142,23 +149,8 @@ main {
 
 }
 
-.tracked-rate p {
-    text-align: right;
-    margin-right: 170px;
-    color: #5cfdc6;
-    font-size: 17px;
-}
-
-.trackedrate {
-    font-size: 17px;
-    margin: 0;
-    padding: 0;
-    color: white;
-    height: 20px;
-}
-
 .chart {
-    width: 720px;
-    height: 720px;
-    margin-left: 20px;
+    width: 45em;
+    height: 45em;
+    margin-left: 1.3em;
 }
