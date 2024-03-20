@@ -20,6 +20,10 @@ export default class DashboardDataModel {
         this.initializeWebSocket();
         this.listeners = [];
 
+//        setInterval(() => {
+//            this.initializeWebSocket();
+//        }, 1000);
+
         this.notify = function(){
             for(var i = 0; i < this.listeners.length; i++){
                 var callback = this.listeners[i];

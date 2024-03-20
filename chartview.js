@@ -21,9 +21,9 @@ export default class ChartView {
         const options = {
             cutout: '90%',
             rotation: 90,
-//            onHover: function(event, elements) {
-//                event.stopPropagation();
-//            },
+            onHover: function(event, elements) {
+                event.stopPropagation();
+            },
             layout: {
                 padding: {
                     top: 40,
@@ -84,7 +84,7 @@ export default class ChartView {
 
                 ctx.restore();
             }
-        }
+        };
 
         const arcLabels = {
             id: 'arcLabels',
@@ -95,6 +95,24 @@ export default class ChartView {
                     chart.getDatasetMeta(i).data.forEach((datapoint, index) => {
 
                         const {x,y} = datapoint.tooltipPosition();
+                        const datasetLength = chart.getDatasetMeta(i).data.length;
+
+                        let deltaY = 0;
+                        if (index > 0) {
+                            const prevModel = chart.getDatasetMeta(i).data[index - 1].tooltipPosition();
+                            const prevY = prevModel.y;
+                            if (Math.abs(y - prevY) < 20) {
+                                deltaY = 15 * (y > prevY ? 1 : -1);
+                            }
+                        }
+
+                        if (index < datasetLength - 1) {
+                            const nextModel = chart.getDatasetMeta(i).data[index + 1].tooltipPosition();
+                            const nextY = nextModel.y;
+                            if (Math.abs(y - nextY) < 20) {
+                                deltaY = 5 * (y > nextY ? 1 : -1);
+                            }
+                        }
 
                         const halfwidth = chart.width/2;
                         const halfheight = chart.height/2;
@@ -102,38 +120,43 @@ export default class ChartView {
                         const radius = Math.min(halfwidth, halfheight) * 0.12;
 
                         const xLabel = x + radius * Math.cos(angle);
-                        const yLabel = y + radius * Math.sin(angle);
+                        const yLabel = y + deltaY + radius * Math.sin(angle);
 
                         ctx.font = '20px work sans';
                         ctx.fillStyle = 'gray';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
                         ctx.fillText(this.viewModel.data[index], xLabel, yLabel);
-                    })
-                })
+                    });
+                });
             }
-        }
+        };
 
-        const overlappingArcSegments = {
-            id: 'overlappingArcSegments',
-            afterDatasetsDraw: (chart) => {
+        const doughnutShadow = {
+            id: 'doughnutShadow',
+            beforeDraw: (chart) => {
                 const ctx = chart.ctx;
+                const outerRadius = Math.min(chart.chartArea.right - chart.chartArea.left, chart.chartArea.bottom - chart.chartArea.top) / 2;
+                const innerRadius = outerRadius * 0.87;
+                const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+                const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
 
-                const arcElement = chart.getDatasetMeta(0).data[0];
-                console.log(arcElement);
-//                const x = chart.getDatasetMeta(0).data[0].x;
-//                const y = chart.getDatasetMeta(0).data[0].y;
-//                const angle = MATH.PI/180;
+                // Draw black circular ring
                 ctx.save();
-//                ctx.arc(x, y, 10, 0, angle*360, false)
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, innerRadius, 0, Math.PI * 2);
+                ctx.strokeStyle = 'black';
+                ctx.lineWidth = 30;
+                ctx.stroke();
+                ctx.restore();
             }
-        }
+        };
 
         this.dashboardChart = new Chart(chart, {
             type: 'doughnut',
             data: data,
             options: options,
-            plugins: [centreText, arcLabels]
+            plugins: [centreText, arcLabels, doughnutShadow]
         });
     }
 
