@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     font-family: 'Work Sans';
     background-color: #191C20;
@@ -10,26 +14,26 @@ body {
     display: flex;
     height: 100%;
     overflow: auto;
-    z-index: 1;
 }
 
 .sidebar {
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     align-items: center;
     height: 100%;
-    width: 7.5em;
+    width: 10.5vw;
     background-color: #222;
     color: #fff;
     padding: 1.3em;
     position: fixed;
     z-index: 2;
-    font-size: 1.1em;
+    font-size: 1vw;
     box-shadow: 0.7em 0 1.3em rgba(0, 0, 0, 0.5);
 }
 
 .sidebar ul li:first-child a {
-    margin-top: 11em;
+    margin-top: 21vh;
 }
 
 .sidebar ul li a {
@@ -55,36 +59,38 @@ body {
 }
 
 .logo1 {
-/*    width: 4em;*/
     max-width: 100%;
-    width: 4em;
+    width: 3vw;
 }
 
 .logo2-link {
-    bottom: 5em;
+    bottom: 5vh;
 }
 
 .logo2 {
-    width: 8em;
+    max-width: 100%;
+    width: 6vw;
 }
 
 .sidebar-top {
     width: 110%;
     border-top: 0.1em solid #555;
-    margin-top: 0em;
+    margin-top: 0vh;
 }
 
 .sidebar-bottom {
     width: 110%;
     border-top: 0.1em solid #555;
-    margin-top: 17em;
-    margin-bottom: 0.5em;
+    margin-top: 33vh;
+    margin-bottom: 1vh;
 }
 
 main {
     flex-grow: 1;
-    margin-left: 9em;
-    padding-top: 6em;
+    position: relative;
+    z-index: 1;
+    margin-left: 10.5vw;
+    padding-top: 10vh;
     height: 100%;
     overflow: auto;
     box-sizing: border-box;
@@ -99,61 +105,72 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding-top: 2.2em;
+    padding-top: 3.3vh;
 }
 
 .location {
-    margin-left: 9em;
+    margin-left: 5.5vw;
     color: white;
-    font-size: 1.1em;
+    font-size: 1vw;
 }
 
 .video-container {
-    overflow: hidden;
+    overflow: auto;
     width: min-content;
-    margin-left: 9.8em;
+    margin-left: 5.5vw;
     border: 0.2em solid #5cfdc6;
     border-radius: 1em;
+}
+
+.video-js {
+    width: 34vw;
+    height: 25.5vw;
 }
 
 .vertical-divider {
     position: relative;
     width: 0.1em;
-    height: 45em;
+    height: 82vh;
     background-color: #555;
-    margin-left: -0.1em;
+    margin-left: -0.1vw;
 }
 
 .current-time p,
 .video-rate p,
 .drpai-rate p {
     display: flex;
-    margin-left: 9em;
-    margin-bottom: 0em;
+    margin-left: 5.5vw;
+    margin-bottom: 0vh;
     color: #5cfdc6;
-    height: 0.8em;
-    font-size: 1.1em;
+    height: 1vh;
+    font-size: 1vw;
 }
 
 .time,
 .videorate,
 .drpairate {
-    font-size: 1.1em;
+    font-size: 1.1vw;
     margin: 0;
     padding: 0;
     color: white;
-    height: 1.1em;
+    height: 1.1vh;
 }
 
 .chart-column {
     flex: 1;
     display: flex;
     flex-direction: column;
-
 }
 
 .chart {
-    width: 45em;
-    height: 45em;
-    margin-left: 1.3em;
+    width: 38vw;
+    height: 38vw;
+    margin-left: 2vw;
 }
+
+/*
+@media only screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+}*/

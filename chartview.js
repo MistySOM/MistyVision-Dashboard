@@ -21,6 +21,7 @@ export default class ChartView {
         const options = {
             cutout: '90%',
             rotation: 90,
+            responsive: true,
             onHover: function(event, elements) {
                 event.stopPropagation();
             },
@@ -42,7 +43,10 @@ export default class ChartView {
                         padding: 40,
                         font: {
                             family: 'Work Sans',
-                            size: 17
+                            size: function(context) {
+                                const width = context.chart.width || 0;
+                                return Math.round(width / 38);
+                            }
                         },
                     }
                 }
@@ -62,25 +66,27 @@ export default class ChartView {
 
                 const xCoor = chart.chartArea.left + (chart.chartArea.right - chart.chartArea.left) / 2;
                 const yCoor = chart.chartArea.top + (chart.chartArea.bottom - chart.chartArea.top) / 2;
+                const vh = chart.canvas.clientHeight / 100;
+
                 ctx.save();
 
-                ctx.font = '24px work sans';
+                ctx.font = '1.3vw work sans';
                 ctx.fillStyle = 'gray';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText('TOTAL COUNT', xCoor, yCoor - 80);
+                ctx.fillText('TOTAL COUNT', xCoor, yCoor - (10*vh));
 
-                ctx.font = '120px work sans';
+                ctx.font = '6vw work sans';
                 ctx.fillStyle = 'white';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.fillText(this.viewModel.totalCount, xCoor, yCoor);
 
-                ctx.font = '20px work sans';
+                ctx.font = '1vw work sans';
                 ctx.fillStyle = 'white';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText('VEHICLES / HOUR', xCoor, yCoor + 60);
+                ctx.fillText('VEHICLES / HOUR', xCoor, yCoor + (8*vh));
 
                 ctx.restore();
             }
@@ -122,7 +128,7 @@ export default class ChartView {
                         const xLabel = x + radius * Math.cos(angle);
                         const yLabel = y + deltaY + radius * Math.sin(angle);
 
-                        ctx.font = '20px work sans';
+                        ctx.font = '1.1vw work sans';
                         ctx.fillStyle = 'gray';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
