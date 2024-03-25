@@ -73,24 +73,23 @@ export default class ChartView {
 
                 ctx.save();
 
-                ctx.font = '1.3vw work sans';
+                ctx.font = (vh*3.5).toString() + 'px work sans';
                 ctx.fillStyle = 'gray';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText('TOTAL COUNT', xCoor, yCoor - (10*vh));
+                ctx.fillText('TOTAL COUNT', xCoor, yCoor - (11*vh));
 
-                ctx.font = '6vw work sans';
+                ctx.font = (vh*16).toString() + 'px work sans';
                 ctx.fillStyle = 'white';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.fillText(this.viewModel.totalCount, xCoor, yCoor);
 
-                ctx.font = '1vw work sans';
+                ctx.font = (vh*3).toString() + 'px work sans';
                 ctx.fillStyle = 'white';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.fillText('VEHICLES / HOUR', xCoor, yCoor + (8*vh));
-
                 ctx.restore();
             }
         };
@@ -123,6 +122,7 @@ export default class ChartView {
                             }
                         }
 
+                        const vh = chart.canvas.clientHeight / 100;
                         const halfwidth = chart.width/2;
                         const halfheight = chart.height/2;
                         const angle = Math.atan2(y - halfheight, x - halfwidth);
@@ -131,7 +131,7 @@ export default class ChartView {
                         const xLabel = x + radius * Math.cos(angle);
                         const yLabel = y + deltaY + radius * Math.sin(angle);
 
-                        ctx.font = '1.1vw work sans';
+                        ctx.font = (vh*3).toString() + 'px work sans';
                         ctx.fillStyle = 'gray';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
