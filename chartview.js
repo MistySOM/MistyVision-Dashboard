@@ -40,7 +40,10 @@ export default class ChartView {
                     labels: {
                         usePointStyle: true,
                         color: 'white',
-                        padding: 40,
+                        padding: function(context) {
+                            const width = context.chart.width || 0;
+                            return Math.round(width / 20);
+                        },
                         font: {
                             family: 'Work Sans',
                             size: function(context) {
@@ -142,17 +145,18 @@ export default class ChartView {
             id: 'doughnutShadow',
             beforeDraw: (chart) => {
                 const ctx = chart.ctx;
+                const chartWidth = chart.chartArea.right - chart.chartArea.left;
                 const outerRadius = Math.min(chart.chartArea.right - chart.chartArea.left, chart.chartArea.bottom - chart.chartArea.top) / 2;
                 const innerRadius = outerRadius * 0.87;
                 const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
                 const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+                const lineWidth = (5 * chartWidth) / 100;
 
-                // Draw black circular ring
                 ctx.save();
                 ctx.beginPath();
                 ctx.arc(centerX, centerY, innerRadius, 0, Math.PI * 2);
                 ctx.strokeStyle = 'black';
-                ctx.lineWidth = 30;
+                ctx.lineWidth = lineWidth;
                 ctx.stroke();
                 ctx.restore();
             }
