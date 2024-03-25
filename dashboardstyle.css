@@ -22,18 +22,18 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    width: 10.5vw;
+    width: 9vw;
     background-color: #222;
     color: #fff;
-    padding: 1.3em;
+    padding: 3vh;
     position: fixed;
     z-index: 2;
     font-size: 1vw;
-    box-shadow: 0.7em 0 1.3em rgba(0, 0, 0, 0.5);
+    box-shadow: 0.7vw 0 1.3vw rgba(0, 0, 0, 0.5);
 }
 
 .sidebar ul li:first-child a {
-    margin-top: 21vh;
+    margin-top: 22vh;
 }
 
 .sidebar ul li a {
@@ -41,12 +41,12 @@ body {
     display: block;
     text-decoration: none;
     color: white;
-    font-size: 1em;
-    padding: 0.6em 1em;
+    font-size: 0.9vw;
+    padding: 1.2vh 1vh;
     background-color: transparent;
-    border-radius: 0.8em;
+    border-radius: 0.8vw;
     transition: background-color 0.3s, color 0.3s;
-    margin-bottom: 0.5em;
+    margin-bottom: 1vh;
 }
 
 .sidebar ul {
@@ -89,7 +89,7 @@ main {
     flex-grow: 1;
     position: relative;
     z-index: 1;
-    margin-left: 10.5vw;
+    margin-left: 9vw;
     padding-top: 10vh;
     height: 100%;
     overflow: auto;
@@ -109,7 +109,7 @@ main {
 }
 
 .location {
-    margin-left: 5.5vw;
+    margin-left: 6vw;
     color: white;
     font-size: 1vw;
 }
@@ -117,9 +117,9 @@ main {
 .video-container {
     overflow: auto;
     width: min-content;
-    margin-left: 5.5vw;
-    border: 0.2em solid #5cfdc6;
-    border-radius: 1em;
+    margin-left: 6vw;
+    border: 0.2vw solid #5cfdc6;
+    border-radius: 1.5vw;
 }
 
 .video-js {
@@ -129,7 +129,7 @@ main {
 
 .vertical-divider {
     position: relative;
-    width: 0.1em;
+    width: 0.2vw;
     height: 82vh;
     background-color: #555;
     margin-left: -0.1vw;
@@ -139,7 +139,7 @@ main {
 .video-rate p,
 .drpai-rate p {
     display: flex;
-    margin-left: 5.5vw;
+    margin-left: 6vw;
     margin-bottom: 0vh;
     color: #5cfdc6;
     height: 1.5vh;
