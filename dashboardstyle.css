@@ -24,7 +24,7 @@ body {
     height: 100%;
     width: 9vw;
     background-color: #222;
-    color: #fff;
+    color: white;
     padding: 1vh;
     position: fixed;
     z-index: 2;
@@ -32,8 +32,13 @@ body {
     box-shadow: 0.7vw 0 1.3vw rgba(0, 0, 0, 0.5);
 }
 
+.sidebar p {
+    margin-top: 1vh; /* Adjust as needed */
+    margin-bottom: 1.5vh; /* Adjust as needed */
+}
+
 .sidebar ul li:first-child a {
-    margin-top: 23vh;
+    margin-top: 24.5vh;
 }
 
 .sidebar ul li a {
@@ -81,7 +86,7 @@ body {
 .sidebar-bottom {
     width: 90%;
     border-top: 0.1em solid #555;
-    margin-top: 34vh;
+    margin-top: 35vh;
     margin-bottom: 1vh;
 }
 
