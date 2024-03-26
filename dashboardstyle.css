@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    width: 9vw;
+    width: 9.5vw;
     background-color: #222;
     color: #fff;
     padding: 3vh;
@@ -42,7 +42,7 @@ body {
     text-decoration: none;
     color: white;
     font-size: 0.9vw;
-    padding: 1.2vh 1vh;
+    padding: 1.2vh 1.5vh;
     background-color: transparent;
     border-radius: 0.8vw;
     transition: background-color 0.3s, color 0.3s;
@@ -51,7 +51,7 @@ body {
 
 .sidebar ul {
     list-style: none;
-    padding: 0em;
+    padding: 0vh;
 }
 
 .sidebar ul li a:hover {
@@ -89,7 +89,7 @@ main {
     flex-grow: 1;
     position: relative;
     z-index: 1;
-    margin-left: 9vw;
+    margin-left: 9.5vw;
     padding-top: 10vh;
     height: 100%;
     overflow: auto;
