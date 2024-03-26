@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    width: 9.5vw;
+    width: 10vw;
     background-color: #222;
     color: #fff;
     padding: 3vh;
@@ -33,7 +33,7 @@ body {
 }
 
 .sidebar ul li:first-child a {
-    margin-top: 22vh;
+    margin-top: 21vh;
 }
 
 .sidebar ul li a {
@@ -81,7 +81,7 @@ body {
 .sidebar-bottom {
     width: 110%;
     border-top: 0.1em solid #555;
-    margin-top: 33vh;
+    margin-top: 34vh;
     margin-bottom: 1vh;
 }
 
@@ -89,7 +89,7 @@ main {
     flex-grow: 1;
     position: relative;
     z-index: 1;
-    margin-left: 9.5vw;
+    margin-left: 10vw;
     padding-top: 10vh;
     height: 100%;
     overflow: auto;
