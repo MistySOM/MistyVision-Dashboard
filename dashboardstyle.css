@@ -72,18 +72,13 @@ body {
 .sidebar-bottom {
     width: 8vw;
     border-top: 0.1em solid #555;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 9vh;
+    margin-top: 35vh;
+    margin-bottom: 1vh;
 }
 
 .logo2 {
-    max-width: 100%;
     width: 6vw;
-    margin-top: 35.5vh;
-/*    position: absolute;
-    bottom: 0;
-    margin-bottom: 1.5vh;*/
+    margin-bottom: 1vh;
 }
 
 main {
