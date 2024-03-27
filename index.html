@@ -3,7 +3,6 @@
   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>MistySOM Video Stream</title>
 
       <!-- WorkSans Font -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +31,7 @@
               <div class="sidebar-top"></div>
               <ul>
                   <li><a href="https://dash.mistysom.com/">Dashboard</a></li>
+                  <li><a href="https://dash.mistysom.com/videoarchive">Video Archive</a></li>
                   <li><a href="https://wiki.mistysom.com/" target="_blank">Support</a></li>
                   <li><a href="https://www.mistywest.com/contact/" target="_blank">Contact Us</a></li>
               </ul>
@@ -43,12 +43,7 @@
           <main>
               <div class="row">
                   <div class="video-column">
-<!--                      <div class="device-status">-->
-<!--                          <p>ON</p>-->
-<!--                      </div>-->
-                      <div class="location">
-                          <p>KINGSWAY, VANCOUVER</p>
-                      </div>
+                      <p class="device-status-text">DEVICE STATUS: <span class="device-status">ON</span> <span class="device-status-divider"> | </span> <span class="location">KINGSWAY, VANCOUVER</span> </p>
                       <div class="video-container">
                           <video id="hls-video" class="video-js" controls>
                               <p>
@@ -63,10 +58,10 @@
                                           liveui: true,
                                           inactivityTimeout: 0,
                                           sources: [ source ]
-                                        }, function() {
-                                        console.log('Video-js is ready!');
-                                        const latencyCompensator = new LatencyCompensator(videojs_player);
-                                        latencyCompensator.enable();
+                                      }, function() {
+                                          console.log('Video-js is ready!');
+                                          const latencyCompensator = new LatencyCompensator(videojs_player);
+                                          latencyCompensator.enable();
                                       });
                                   });
                               </script>
