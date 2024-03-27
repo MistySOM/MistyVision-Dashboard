@@ -29,12 +29,11 @@ body {
 }
 
 .logo1 {
-    max-width: 100%;
     width: 3vw;
 }
 
 .sidebar p {
-    margin-top: 1vh; /* Adjust as needed */
+    margin-top: 1.5vh; /* Adjust as needed */
     margin-bottom: 1.5vh; /* Adjust as needed */
 }
 
@@ -45,7 +44,7 @@ body {
 }
 
 .sidebar ul li:first-child a {
-    margin-top: 24.5vh;
+    margin-top: 23.5vh;
 }
 
 .sidebar ul li a {
@@ -81,10 +80,10 @@ body {
 .logo2 {
     max-width: 100%;
     width: 6vw;
-    position: absolute;
+    margin-top: 35.5vh;
+/*    position: absolute;
     bottom: 0;
-    margin-bottom: 1.5vh;
-    margin-left: -6.2vh;
+    margin-bottom: 1.5vh;*/
 }
 
 main {
@@ -108,6 +107,10 @@ main {
     display: flex;
     flex-direction: column;
     padding-top: 3.3vh;
+}
+
+.device-status {
+
 }
 
 .location {
