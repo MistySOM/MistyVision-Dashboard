@@ -17,12 +17,11 @@ body {
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
-    height: 100%;
-    width: 9vw;
+    height: 100vh;
+    width: 9.5vw;
     background-color: #222;
     color: white;
     padding: 1vh;
-    position: fixed;
     z-index: 2;
     font-size: 1vw;
     box-shadow: 0.7vw 0 1.3vw rgba(0, 0, 0, 0.5);
@@ -37,14 +36,9 @@ body {
     margin-bottom: 1.5vh; /* Adjust as needed */
 }
 
-.sidebar-top {
+.horizontal-divider-top {
     width: 8vw;
     border-top: 0.1em solid #555;
-    margin-top: 0vh;
-}
-
-.sidebar ul li:first-child a {
-    margin-top: 21vh;
 }
 
 .sidebar ul li a {
@@ -61,6 +55,10 @@ body {
 }
 
 .sidebar ul {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     list-style: none;
     padding: 0vh;
 }
@@ -69,49 +67,54 @@ body {
     background-color: #555;
 }
 
-.sidebar-bottom {
+.horizontal-divider-bottom {
     width: 8vw;
     border-top: 0.1em solid #555;
-    margin-top: 32vh;
     margin-bottom: 0.5vh;
 }
 
 .logo2 {
     width: 6vw;
-    margin-bottom: 1vh;
 }
 
 main {
-    flex-grow: 1;
+    flex: 1;
+    display: flex;
+    justify-content: center;
     position: relative;
     z-index: 1;
-    margin-left: 9vw;
-    padding-top: 10vh;
-    height: 100%;
+    height: 100vh;
     overflow: auto;
     box-sizing: border-box;
 }
 
-.row {
+table {
+    flex: 1;
     display: flex;
-    height: 100%;
+    padding: 15vh;
+
 }
 
-.video-column {
+tbody {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding-top: 3.3vh;
 }
 
-.device-status {
-
+tr {
+    flex: 1;
+    display: flex;
 }
 
-.location {
-    margin-left: 6vw;
-    color: white;
-    font-size: 1vw;
+td {
+    flex: 1;
+    display: flex;
+    border: 0.2vw solid #5cfdc6;
 }
 
+.horizontal-divider {
+    flex: 0;
+    margin: auto;
+    width: 75vw;
+    border-top: 0.5vh solid #555;
 }
