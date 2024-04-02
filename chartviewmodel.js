@@ -7,6 +7,8 @@ export default class ChartViewModel {
     carCount = 0;
     truckCount = 0;
     busCount = 0;
+    messageStatus = false;
+
     subscribe = function(listener){
         this.listeners.push(listener);
     }
@@ -24,12 +26,22 @@ export default class ChartViewModel {
     }
 
     updateChartData() {
-        this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];
-        this.labels = ["CARS", "TRUCKS", "BUSES"];
-        this.totalCount = this.model.totalCount;
-        this.carCount = this.model.carCount;
-        this.truckCount = this.model.truckCount;
-        this.busCount = this.model.busCount;
+        if (this.model.messageStatus == false) {
+            this.totalCount = null;
+            this.carCount = null;
+            this.truckCount = null;
+            this.busCount = null;
+            this.messageStatus = this.model.messageStatus;
+        } else {
+            this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];
+            this.labels = ["CARS", "TRUCKS", "BUSES"];
+            this.totalCount = this.model.totalCount;
+            this.carCount = this.model.carCount;
+            this.truckCount = this.model.truckCount;
+            this.busCount = this.model.busCount;
+            this.messageStatus = this.model.messageStatus;
+        }
+
         this.notify();
     }
 }

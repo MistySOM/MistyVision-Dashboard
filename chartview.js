@@ -83,7 +83,12 @@ export default class ChartView {
                 ctx.fillStyle = 'white';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText(this.viewModel.totalCount, xCoor, yCoor);
+                if (this.viewModel.messageStatus == false) {
+                    ctx.font = (vh*10).toString() + 'px work sans';
+                    ctx.fillText('UNKNOWN', xCoor, yCoor);
+                } else {
+                    ctx.fillText(this.viewModel.totalCount, xCoor, yCoor);
+                }
 
                 ctx.font = (vh*3).toString() + 'px work sans';
                 ctx.fillStyle = 'white';

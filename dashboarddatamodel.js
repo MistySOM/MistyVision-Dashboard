@@ -10,6 +10,8 @@ export default class DashboardDataModel {
     truckCount;
     timePortion;
     pstDateTime;
+    messageStatus;
+    deviceStatus;
 
     subscribe = function(listener){
         this.listeners.push(listener);
@@ -17,8 +19,11 @@ export default class DashboardDataModel {
 
     constructor() {
         this.websocket = null;
+        this.messageStatus = false;
         this.initializeWebSocket();
         this.listeners = [];
+
+        this.startTimeout();
 
 //        setInterval(() => {
 //            this.initializeWebSocket();
@@ -55,11 +60,29 @@ export default class DashboardDataModel {
         .catch(error => console.error('Fetching Web PubSub token failed:', error));
     }
 
+    startTimeout() {
+        // Start the timeout
+        setTimeout(() => {
+            this.sendTimeoutMessage();
+            // Call startTimeout again to repeat the process
+            this.startTimeout();
+        }, 10000);
+    }
+
+    sendTimeoutMessage() {
+        // Notifies that there has been no new data
+        this.messageStatus = false;
+        this.notify();
+    }
+
     handleWebSocketMessage(event) {
         try {
             const message = JSON.parse(event.data);
             console.log('Message received:', message);
 
+            clearTimeout();
+
+            this.messageStatus = true;
             this.videoRate = isNaN(parseInt(message["video_rate"])) ? -1 : parseInt(message["video_rate"]);
             this.drpaiRate = isNaN(parseInt(message["drpai_rate"])) ? -1 : parseInt(message["drpai_rate"]);
             this.timestamp = message.timestamp || "N/A";

@@ -70,6 +70,7 @@ body {
 .horizontal-divider-bottom {
     width: 8vw;
     border-top: 0.1em solid #555;
+    margin-top: 6vh;
     margin-bottom: 0.5vh;
 }
 

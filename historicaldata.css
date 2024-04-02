@@ -70,6 +70,7 @@ body {
 .horizontal-divider-bottom {
     width: 8vw;
     border-top: 0.1em solid #555;
+    margin-top: 6vh;
     margin-bottom: 0.5vh;
 }
 
@@ -91,7 +92,7 @@ main {
 table {
     flex: 1;
     display: flex;
-    padding: 15vh;
+    padding: 20vh;
 
 }
 
@@ -109,12 +110,33 @@ tr {
 td {
     flex: 1;
     display: flex;
-    border: 0.2vw solid #5cfdc6;
 }
 
 .horizontal-divider {
     flex: 0;
     margin: auto;
-    width: 75vw;
+    width: 70vw;
     border-top: 0.5vh solid #555;
+}
+
+.image-download,
+.csv-download {
+    display: flex;
+
+    color: white;
+    height: 1.5vh;
+    font-size: 1vw;
+}
+
+.image-download a,
+.csv-download a {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9vw;
+    padding: 1.2vh 1.5vh;
+    background-color: #555;
+    border-radius: 0.8vw;
+    transition: background-color 0.3s, color 0.3s;
 }
