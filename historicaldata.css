@@ -92,7 +92,7 @@ main {
 table {
     flex: 1;
     display: flex;
-    padding: 20vh;
+    padding: 17vh;
 }
 
 tbody {
@@ -164,7 +164,5 @@ td {
     margin: auto;
     width: 70vw;
     border-top: 0.5vh solid #555;
-/*    margin-top: 2vh;
-    margin-bottom: 2vh;*/
 }
 

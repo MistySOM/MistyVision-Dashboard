@@ -11,7 +11,6 @@ export default class DashboardDataModel {
     timePortion;
     pstDateTime;
     messageStatus;
-    deviceStatus;
 
     subscribe = function(listener){
         this.listeners.push(listener);

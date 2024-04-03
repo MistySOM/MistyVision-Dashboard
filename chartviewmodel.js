@@ -31,6 +31,7 @@ export default class ChartViewModel {
             this.carCount = null;
             this.truckCount = null;
             this.busCount = null;
+            this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];
             this.messageStatus = this.model.messageStatus;
         } else {
             this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];

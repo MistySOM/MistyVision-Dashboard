@@ -11,9 +11,8 @@ export default class DataDisplayView {
     }
 
     updateDashboardDisplay() {
-
         if (this.model.messageStatus == false) {
-            this.pstDataTime = '';
+            this.pstDataTime = null;
             this.model.videoRate = null;
             this.model.drpaiRate = null;
 
