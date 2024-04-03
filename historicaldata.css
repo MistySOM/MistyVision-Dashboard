@@ -93,7 +93,6 @@ table {
     flex: 1;
     display: flex;
     padding: 20vh;
-
 }
 
 tbody {
@@ -110,6 +109,54 @@ tr {
 td {
     flex: 1;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+/*    border: 0.2vw solid #5cfdc6;
+    border-radius: 1.5vw;*/
+}
+
+.historical-data-date p {
+    display: flex;
+    margin: 0;
+    font-size: 1.2vw;
+    color: gray;
+}
+
+.historical-data-time p {
+    display: flex;
+    margin: 0;
+    font-size: 2vw;
+    margin-bottom: 0.5vh;
+}
+
+.vehicle-count p {
+    display: flex;
+    font-size: 1vw;
+    margin: 0.3vh;
+}
+
+.image-download,
+.csv-download {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 1vw;
+    margin-top: 1vh;
+}
+
+.image-download a,
+.csv-download a {
+    flex-direction: column;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9vw;
+    padding: 1vh 1.5vh;
+    background-color: #555;
+    border-radius: 0.8vw;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .horizontal-divider {
@@ -117,26 +164,7 @@ td {
     margin: auto;
     width: 70vw;
     border-top: 0.5vh solid #555;
+/*    margin-top: 2vh;
+    margin-bottom: 2vh;*/
 }
 
-.image-download,
-.csv-download {
-    display: flex;
-
-    color: white;
-    height: 1.5vh;
-    font-size: 1vw;
-}
-
-.image-download a,
-.csv-download a {
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    color: white;
-    font-size: 0.9vw;
-    padding: 1.2vh 1.5vh;
-    background-color: #555;
-    border-radius: 0.8vw;
-    transition: background-color 0.3s, color 0.3s;
-}

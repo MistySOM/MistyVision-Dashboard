@@ -7,10 +7,10 @@ export default class DataDisplayView {
 
     constructor(model) {
         this.model = model;
-        this.model.subscribe(this.updateDisplay.bind(this));
+        this.model.subscribe(this.updateDashboardDisplay.bind(this));
     }
 
-    updateDisplay() {
+    updateDashboardDisplay() {
 
         if (this.model.messageStatus == false) {
             this.pstDataTime = '';

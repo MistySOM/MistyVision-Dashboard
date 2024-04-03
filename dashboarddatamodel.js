@@ -64,15 +64,15 @@ export default class DashboardDataModel {
         // Start the timeout
         setTimeout(() => {
             this.sendTimeoutMessage();
-            // Call startTimeout again to repeat the process
-            this.startTimeout();
-        }, 10000);
+        }, 15000);
     }
 
     sendTimeoutMessage() {
         // Notifies that there has been no new data
         this.messageStatus = false;
         this.notify();
+        // Set a new timeout to repeat the process after 10 seconds
+        this.startTimeout();
     }
 
     handleWebSocketMessage(event) {
@@ -80,7 +80,7 @@ export default class DashboardDataModel {
             const message = JSON.parse(event.data);
             console.log('Message received:', message);
 
-            clearTimeout();
+            clearTimeout(this.timeoutId);
 
             this.messageStatus = true;
             this.videoRate = isNaN(parseInt(message["video_rate"])) ? -1 : parseInt(message["video_rate"]);
@@ -92,6 +92,10 @@ export default class DashboardDataModel {
             this.carCount = isNaN(parseInt(this.trackHistory.car)) ? -1 : parseInt(this.trackHistory.car);
             this.busCount = isNaN(parseInt(this.trackHistory.bus)) ? -1 : parseInt(this.trackHistory.bus);
             this.truckCount = isNaN(parseInt(this.trackHistory.truck)) ? -1 : parseInt(this.trackHistory.truck);
+
+            this.timeoutId = setTimeout(() => {
+                this.sendTimeoutMessage();
+            }, 15000);
 
             this.notify();
         } catch (error) {
