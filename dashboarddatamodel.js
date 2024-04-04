@@ -24,10 +24,6 @@ export default class DashboardDataModel {
 
         this.startTimeout();
 
-//        setInterval(() => {
-//            this.initializeWebSocket();
-//        }, 1000);
-
         this.notify = function(){
             for(var i = 0; i < this.listeners.length; i++){
                 var callback = this.listeners[i];
@@ -61,7 +57,7 @@ export default class DashboardDataModel {
 
     startTimeout() {
         // Start the timeout
-        setTimeout(() => {
+        this.timeoutId = setTimeout(() => {
             this.sendTimeoutMessage();
         }, 15000);
     }
@@ -77,9 +73,10 @@ export default class DashboardDataModel {
     handleWebSocketMessage(event) {
         try {
             const message = JSON.parse(event.data);
-            console.log('Message received:', message);
+//            console.log('Message received:', message);
 
             clearTimeout(this.timeoutId);
+            this.startTimeout();
 
             this.messageStatus = true;
             this.videoRate = isNaN(parseInt(message["video_rate"])) ? -1 : parseInt(message["video_rate"]);
@@ -91,10 +88,6 @@ export default class DashboardDataModel {
             this.carCount = isNaN(parseInt(this.trackHistory.car)) ? -1 : parseInt(this.trackHistory.car);
             this.busCount = isNaN(parseInt(this.trackHistory.bus)) ? -1 : parseInt(this.trackHistory.bus);
             this.truckCount = isNaN(parseInt(this.trackHistory.truck)) ? -1 : parseInt(this.trackHistory.truck);
-
-            this.timeoutId = setTimeout(() => {
-                this.sendTimeoutMessage();
-            }, 15000);
 
             this.notify();
         } catch (error) {

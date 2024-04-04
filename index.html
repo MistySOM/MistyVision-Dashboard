@@ -13,6 +13,7 @@
       <link rel="stylesheet" href="dashboardstyle.css">
 
       <!-- Video JS -->
+<!--      <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-dvrseekbar/7.1.2/videojs-dvrseekbar.min.js"></script>-->
       <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
       <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
       <script src="latencyCompensator.js"></script>
@@ -58,10 +59,10 @@
                                           liveui: true,
                                           inactivityTimeout: 0,
                                           sources: [ source ]
-                                      }, function() {
-                                          console.log('Video-js is ready!');
-                                          const latencyCompensator = new LatencyCompensator(videojs_player);
-                                          latencyCompensator.enable();
+                                        }, function() {
+                                        console.log('Video-js is ready!');
+                                        const latencyCompensator = new LatencyCompensator(videojs_player);
+                                        latencyCompensator.enable();
                                       });
                                   });
                               </script>

@@ -1,12 +1,12 @@
 import DashboardDataModel from './dashboarddatamodel.js';
 
 export default class ChartViewModel {
-    data = [];
-    labels = [];
-    totalCount = 0;
-    carCount = 0;
-    truckCount = 0;
-    busCount = 0;
+    data;
+    labels;
+    totalCount;
+    carCount;
+    truckCount;
+    busCount;
     messageStatus = false;
 
     subscribe = function(listener){
@@ -31,7 +31,8 @@ export default class ChartViewModel {
             this.carCount = null;
             this.truckCount = null;
             this.busCount = null;
-            this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];
+            this.data = [];
+            this.labels = [];
             this.messageStatus = this.model.messageStatus;
         } else {
             this.data = [this.model.carCount, this.model.truckCount, this.model.busCount];

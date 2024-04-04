@@ -35,17 +35,17 @@ export default class HistoricalDataModel {
 
     handleHistoricalDataMessage(data) {
         try {
-            console.log('Data received:', data);
+//            console.log('Data received:', data);
             this.dataLength = data.length;
 
             data.forEach(item => {
-                console.log('Timestamp:', item.timestamp);
-                console.log('Total count:', item.track_history.total_count);
-                console.log('Car count:', item.track_history.car);
-                console.log('Bus count:', item.track_history.bus);
-                console.log('Truck count:', item.track_history.truck);
-                console.log('Download URL:', item.download_url);
-                console.log('---------------------------------------');
+//                console.log('Timestamp:', item.timestamp);
+//                console.log('Total count:', item.track_history.total_count);
+//                console.log('Car count:', item.track_history.car);
+//                console.log('Bus count:', item.track_history.bus);
+//                console.log('Truck count:', item.track_history.truck);
+//                console.log('Download URL:', item.download_url);
+//                console.log('---------------------------------------');
 
                 this.timestamps.push(item.timestamp);
                 this.carCounts.push(item.track_history.car);
