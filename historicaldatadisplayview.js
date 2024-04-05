@@ -53,8 +53,13 @@ export default class HistoricalDataDisplayView {
             this.truckLabel = this.truckCount == 1 ? " Truck" : " Trucks";
             this.busLabel = this.busCount == 1 ? " Bus" : " Buses";
 
-            this.downloadURL = "https://mistyvisionfunctionapp.azurewebsites.net/api/" + this.model.downloadURLs[i];
-            this.fileName = "MistyVisionData_" + this.model.timestamps[i].replace(/[^\w\s-]/g, '-');
+            if (this.model.downloadURLs[i] == '') {
+                this.downloadURL = '';
+                this.fileName = '';
+            } else {
+                this.downloadURL = "https://mistyvisionfunctionapp.azurewebsites.net/api/" + this.model.downloadURLs[i];
+                this.fileName = "MistyVisionData_" + this.model.timestamps[i].replace(/[^\w\s-]/g, '-');
+            }
 
             this.dateId = "date" + (i + 1);
             this.timeId = "time" + (i + 1);

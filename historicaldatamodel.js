@@ -40,18 +40,18 @@ export default class HistoricalDataModel {
 
             data.forEach(item => {
 //                console.log('Timestamp:', item.timestamp);
-//                console.log('Total count:', item.track_history.total_count);
-//                console.log('Car count:', item.track_history.car);
-//                console.log('Bus count:', item.track_history.bus);
-//                console.log('Truck count:', item.track_history.truck);
-//                console.log('Download URL:', item.download_url);
+//                console.log('Total count:', item.track_history && item.track_history.total_count !== undefined ? item.track_history.total_count : 'Does Not Exist');
+//                console.log('Car count:', item.track_history && item.track_history.car !== undefined ? item.track_history.car : 'Does Not Exist');
+//                console.log('Bus count:', item.track_history && item.track_history.bus !== undefined ? item.track_history.bus : 'Does Not Exist');
+//                console.log('Truck count:', item.track_history && item.track_history.truck !== undefined ? item.track_history.truck : 'Does Not Exist');
+//                console.log('Download URL:', item.download_url !== undefined ? item.download_url : 'Does Not Exist');
 //                console.log('---------------------------------------');
 
                 this.timestamps.push(item.timestamp);
-                this.carCounts.push(item.track_history.car);
-                this.busCounts.push(item.track_history.bus);
-                this.truckCounts.push(item.track_history.truck);
-                this.downloadURLs.push(item.download_url);
+                this.carCounts.push(item.track_history && item.track_history.car !== undefined ? item.track_history.car : 0);
+                this.busCounts.push(item.track_history && item.track_history.bus !== undefined ? item.track_history.bus : 0);
+                this.truckCounts.push(item.track_history && item.track_history.truck !== undefined ? item.track_history.truck : 0);
+                this.downloadURLs.push(item.download_url !== undefined ? item.download_url : '');
             });
             this.notify();
         } catch (error) {

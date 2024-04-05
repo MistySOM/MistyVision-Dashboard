@@ -84,10 +84,10 @@ export default class DashboardDataModel {
             this.timestamp = message.timestamp || "N/A";
             this.trackHistory = message.track_history || {};
             this.minutes = isNaN(parseInt(this.trackHistory.minutes)) ? -1 : parseInt(this.trackHistory.minutes);
-            this.totalCount = isNaN(parseInt(this.trackHistory.total_count)) ? -1 : parseInt(this.trackHistory.total_count);
-            this.carCount = isNaN(parseInt(this.trackHistory.car)) ? -1 : parseInt(this.trackHistory.car);
-            this.busCount = isNaN(parseInt(this.trackHistory.bus)) ? -1 : parseInt(this.trackHistory.bus);
-            this.truckCount = isNaN(parseInt(this.trackHistory.truck)) ? -1 : parseInt(this.trackHistory.truck);
+            this.totalCount = isNaN(parseInt(this.trackHistory.total_count)) ? "UNKNOWN" : parseInt(this.trackHistory.total_count);
+            this.carCount = isNaN(parseInt(this.trackHistory.car)) ? 0 : parseInt(this.trackHistory.car);
+            this.busCount = isNaN(parseInt(this.trackHistory.bus)) ? 0 : parseInt(this.trackHistory.bus);
+            this.truckCount = isNaN(parseInt(this.trackHistory.truck)) ? 0 : parseInt(this.trackHistory.truck);
 
             this.notify();
         } catch (error) {
