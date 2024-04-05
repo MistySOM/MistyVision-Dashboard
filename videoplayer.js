@@ -31,6 +31,11 @@ export default class VideoPlayer {
                     this.liveVideo = false;
                     }
                 });
+
+                videojs_player.on('pause', () => {
+                    console.log('Video player is paused.');
+                    this.liveVideo = false;
+                });
             });
         });
     };
