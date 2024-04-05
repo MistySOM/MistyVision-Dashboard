@@ -110,8 +110,19 @@ main {
 }
 
 .device-status {
-    color: #1ef52b;
     font-size: 1vw;
+}
+
+.device-status-on {
+    color: #1ef52b;
+}
+
+.device-status-no-vid-no-data {
+    color: #f2c55c;
+}
+
+.device-status-offline {
+    color: #808080;
 }
 
 .device-status-text {

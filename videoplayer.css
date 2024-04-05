@@ -1,0 +1,5 @@
+.video-js .vjs-volume-panel,
+.video-js .vjs-picture-in-picture-control
+{
+    display: none;
+}

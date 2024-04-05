@@ -1,27 +1,37 @@
-fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
-    console.log(response.url);
-    const source = { src:response.url, type:'application/x-mpegURL' };
-    const videojs_player = videojs('hls-video', {
-        autoplay: 'muted',
-        liveui: true,
-        inactivityTimeout: 0,
-        sources: [ source ],
-        plugins: {
-            dvrseekbar: {}
-        }
-    }, function() {
-        console.log('Video-js is ready!');
-        const latencyCompensator = new LatencyCompensator(videojs_player);
-        latencyCompensator.enable();
+export default class VideoPlayer {
 
-        videojs_player.on('timeupdate', function () {
-            if (videojs_player.atLiveEdge()) {
-            console.log('Player is at the live edge.');
-            } else if (videojs_player.behindLiveEdge()) {
-            console.log('Player is behind the live edge.');
-            } else {
-            console.log('Player is ahead of the live edge.');
-            }
+    constructor() {
+        this.liveVideo = false;
+        this.init();
+    }
+
+    init() {
+        fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
+            console.log(response.url);
+            const source = { src:response.url, type:'application/x-mpegURL' };
+            const videojs_player = videojs('hls-video', {
+                autoplay: 'muted',
+                liveui: true,
+                inactivityTimeout: 0,
+                sources: [ source ]
+            }, () => {
+                console.log('Video-js is ready!');
+                const latencyCompensator = new LatencyCompensator(videojs_player);
+                latencyCompensator.enable();
+
+                videojs_player.on('timeupdate', () => {
+                    if (videojs_player.liveTracker.atLiveEdge()) {
+                    console.log('Video player is live.');
+                    this.liveVideo = true;
+                    } else if (videojs_player.liveTracker.behindLiveEdge()) {
+                    console.log('Video player is not live.');
+                    this.liveVideo = false;
+                    } else {
+                    console.log('Video player is ahead of the live edge.');
+                    this.liveVideo = false;
+                    }
+                });
+            });
         });
-    });
-});
+    };
+}

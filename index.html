@@ -11,9 +11,9 @@
 
       <!-- MistyVision Dashboard CSS -->
       <link rel="stylesheet" href="dashboardstyle.css">
+      <link rel="stylesheet" href="videoplayer.css">
 
       <!-- Video JS -->
-<!--      <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-dvrseekbar/7.1.2/videojs-dvrseekbar.min.js"></script>-->
       <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
       <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
       <script src="latencyCompensator.js"></script>
@@ -44,35 +44,12 @@
           <main>
               <div class="row">
                   <div class="video-column">
-                      <p class="device-status-text">DEVICE STATUS: <span class="device-status">ON</span> <span class="device-status-divider"> | &nbsp;</span> <span class="location">KINGSWAY, VANCOUVER</span> </p>
+                      <p class="device-status-text">DEVICE STATUS: <span id="device-status" class="device-status"></span> <span class="device-status-divider"> | &nbsp;</span> <span class="location">KINGSWAY, VANCOUVER</span> </p>
                       <div class="video-container">
                           <video id="hls-video" class="video-js" controls>
                               <p>
                                   To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
                               </p>
-                              <script>
-                                  fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
-                                      console.log(response.url);
-                                      const source = { src:response.url, type:'application/x-mpegURL' };
-                                      const videojs_player = videojs('hls-video', {
-                                          autoplay: 'muted',
-                                          liveui: true,
-                                          inactivityTimeout: 0,
-                                          sources: [ source ]
-                                        }, function() {
-                                        console.log('Video-js is ready!');
-                                        const latencyCompensator = new LatencyCompensator(videojs_player);
-                                        latencyCompensator.enable();
-                                      });
-                                  });
-                              </script>
-                              <style>
-                                  .video-js .vjs-volume-panel,
-                                  .video-js .vjs-picture-in-picture-control
-                                  {
-                                  display: none;
-                                  }
-                              </style>
                           </video>
                       </div>
                       <div class="current-time">
