@@ -53,14 +53,6 @@ export default class HistoricalDataDisplayView {
             this.truckLabel = this.truckCount == 1 ? " Truck" : " Trucks";
             this.busLabel = this.busCount == 1 ? " Bus" : " Buses";
 
-            if (this.model.downloadURLs[i] == '') {
-                this.downloadURL = '';
-                this.fileName = '';
-            } else {
-                this.downloadURL = "https://mistyvisionfunctionapp.azurewebsites.net/api/" + this.model.downloadURLs[i];
-                this.fileName = "MistyVisionData_" + this.model.timestamps[i].replace(/[^\w\s-]/g, '-');
-            }
-
             this.dateId = "date" + (i + 1);
             this.timeId = "time" + (i + 1);
             this.carId = "car" + (i + 1);
@@ -73,8 +65,18 @@ export default class HistoricalDataDisplayView {
             document.getElementById(this.carId).innerHTML = this.carCount + this.carLabel;
             document.getElementById(this.truckId).innerHTML = this.truckCount + this.truckLabel;
             document.getElementById(this.busId).innerHTML = this.busCount + this.busLabel;
-            document.getElementById(this.downloadURLId).setAttribute('href', this.downloadURL);
-            document.getElementById(this.downloadURLId).setAttribute('download', this.fileName);
+
+            if (this.model.downloadURLs[i] == '') {
+                this.downloadURL = '';
+                this.fileName = '';
+                document.getElementById(this.downloadURLId).setAttribute('href', 'javascript:void(0)');
+                document.getElementById(this.downloadURLId).removeAttribute('download');
+            } else {
+                this.downloadURL = "https://mistyvisionfunctionapp.azurewebsites.net/api/" + this.model.downloadURLs[i];
+                this.fileName = "MistyVisionData_" + this.model.timestamps[i].replace(/[^\w\s-]/g, '-');
+                document.getElementById(this.downloadURLId).setAttribute('href', this.downloadURL);
+                document.getElementById(this.downloadURLId).setAttribute('download', this.fileName);
+            }
         }
     }
 }
