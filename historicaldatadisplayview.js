@@ -76,7 +76,7 @@ export default class HistoricalDataDisplayView {
                 document.getElementById(this.csvURLId).setAttribute('href', 'javascript:void(0)');
                 document.getElementById(this.csvURLId).removeAttribute('download');
             } else {
-                this.csvURL = "https://mistyvisionfunctionapp.azurewebsites.net/api/" + this.model.csvURLs[i];
+                this.csvURL = this.model.csvURLs[i];
                 this.fileName = "MistyVisionData_" + this.model.timestamps[i].replace(/[^\w\s-]/g, '-');
                 document.getElementById(this.csvURLId).setAttribute('href', this.csvURL);
                 document.getElementById(this.csvURLId).setAttribute('download', this.fileName);

@@ -46,7 +46,7 @@ export default class HistoricalDataModel {
                 console.log('Bus count:', item.track_history && item.track_history.bus !== undefined ? item.track_history.bus : 'Does Not Exist');
                 console.log('Truck count:', item.track_history && item.track_history.truck !== undefined ? item.track_history.truck : 'Does Not Exist');
                 console.log('CSV URL:', item.csv_url !== undefined ? item.csv_url : 'Does Not Exist');
-                console.log('Video URL:', item.video_url[0] !== undefined ? item.video_url[0] : 'Does Not Exist');
+                console.log('Video URL:', Array.isArray(item.video_url) && item.video_url.length > 0 ? item.video_url[0] : 'Does Not Exist');
                 console.log('---------------------------------------');
 
                 this.timestamps.push(item.timestamp);
@@ -54,7 +54,7 @@ export default class HistoricalDataModel {
                 this.busCounts.push(item.track_history && item.track_history.bus !== undefined ? item.track_history.bus : 0);
                 this.truckCounts.push(item.track_history && item.track_history.truck !== undefined ? item.track_history.truck : 0);
                 this.csvURLs.push(item.csv_url !== undefined ? item.csv_url : '');
-                this.videoURLs.push(item.video_url[0] !== undefined ? item.video_url[0] : '');
+                this.videoURLs.push(Array.isArray(item.video_url) && item.video_url.length > 0 ? item.video_url[0] : '');
             });
             this.notify();
         } catch (error) {
