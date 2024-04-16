@@ -12,7 +12,8 @@ export default class HistoricalDataDisplayView {
     carLabel;
     truckLabel;
     busLabel;
-    downloadURL;
+    csvURL;
+    videoURL;
     fileName;
     dataLength;
     dateId;
@@ -20,6 +21,8 @@ export default class HistoricalDataDisplayView {
     carId;
     truckId;
     busId;
+    csvURLId;
+    videoURLId;
 
     constructor(model) {
         this.model = model;
@@ -58,7 +61,8 @@ export default class HistoricalDataDisplayView {
             this.carId = "car" + (i + 1);
             this.truckId = "truck" + (i + 1);
             this.busId = "bus" + (i + 1);
-            this.downloadURLId = "url" + (i + 1);
+            this.csvURLId = "csv" + (i + 1);
+            this.videoURLId = "video" + (i + 1);
 
             document.getElementById(this.dateId).innerHTML = this.pstDate;
             document.getElementById(this.timeId).innerHTML = this.pstTime;
@@ -66,16 +70,24 @@ export default class HistoricalDataDisplayView {
             document.getElementById(this.truckId).innerHTML = this.truckCount + this.truckLabel;
             document.getElementById(this.busId).innerHTML = this.busCount + this.busLabel;
 
-            if (this.model.downloadURLs[i] == '') {
-                this.downloadURL = '';
+            if (this.model.csvURLs[i] == '') {
+                this.csvURL = '';
                 this.fileName = '';
-                document.getElementById(this.downloadURLId).setAttribute('href', 'javascript:void(0)');
-                document.getElementById(this.downloadURLId).removeAttribute('download');
+                document.getElementById(this.csvURLId).setAttribute('href', 'javascript:void(0)');
+                document.getElementById(this.csvURLId).removeAttribute('download');
             } else {
-                this.downloadURL = "https://mistyvisionfunctionapp.azurewebsites.net/api/" + this.model.downloadURLs[i];
+                this.csvURL = "https://mistyvisionfunctionapp.azurewebsites.net/api/" + this.model.csvURLs[i];
                 this.fileName = "MistyVisionData_" + this.model.timestamps[i].replace(/[^\w\s-]/g, '-');
-                document.getElementById(this.downloadURLId).setAttribute('href', this.downloadURL);
-                document.getElementById(this.downloadURLId).setAttribute('download', this.fileName);
+                document.getElementById(this.csvURLId).setAttribute('href', this.csvURL);
+                document.getElementById(this.csvURLId).setAttribute('download', this.fileName);
+            }
+
+            if (this.model.videoURLs[i] == '') {
+                this.videoURL = '';
+                document.getElementById(this.videoURLId).setAttribute('href', 'javascript:void(0)');
+            } else {
+                this.videoURL = this.model.videoURLs[i];
+                document.getElementById(this.videoURLId).setAttribute('href', this.videoURL);
             }
         }
     }

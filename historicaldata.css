@@ -137,7 +137,7 @@ td {
     justify-content: center;
 }
 
-.image-open,
+.video,
 .csv-download {
     display: flex;
     flex-direction: column;
@@ -146,7 +146,7 @@ td {
     margin-top: 1vh;
 }
 
-.image-open a,
+.video a,
 .csv-download a {
     flex-direction: column;
     text-align: center;

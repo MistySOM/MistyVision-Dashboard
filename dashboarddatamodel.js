@@ -66,8 +66,6 @@ export default class DashboardDataModel {
         // Notifies that there has been no new data
         this.messageStatus = false;
         this.notify();
-        // Set a new timeout to repeat the process after 10 seconds
-        this.startTimeout();
     }
 
     handleWebSocketMessage(event) {
