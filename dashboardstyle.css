@@ -32,8 +32,8 @@ body {
 }
 
 .sidebar p {
-    margin-top: 1.5vh; /* Adjust as needed */
-    margin-bottom: 1.5vh; /* Adjust as needed */
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
 }
 
 .horizontal-divider-top {
