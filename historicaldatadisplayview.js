@@ -2,7 +2,8 @@ import HistoricalDataModel from './historicaldatamodel.js';
 
 export default class HistoricalDataDisplayView {
     pstDate;
-    pstTime;
+    pstStartTime;
+    pstEndTime;
     year;
     month;
     day;
@@ -43,7 +44,14 @@ export default class HistoricalDataDisplayView {
             this.day = this.pstDate.substring(3, 5);
             this.pstDate = this.year + "/" + this.month + "/" + this.day;
 
-            this.pstTime = new Date(this.model.timestamps[i]).toLocaleTimeString('en-US', {
+            this.pstStartTime = new Date(new Date(this.model.timestamps[i]).getTime() - 3600000).toLocaleTimeString('en-US', {
+                timeZone: 'America/Vancouver',
+                hour: 'numeric'
+            })
+            .split(' ')[0];
+            console.log(this.pstStartTime);
+
+            this.pstEndTime = new Date(this.model.timestamps[i]).toLocaleTimeString('en-US', {
                 timeZone: 'America/Vancouver',
                 hour: 'numeric'
             });
@@ -65,7 +73,7 @@ export default class HistoricalDataDisplayView {
             this.videoURLId = "video" + (i + 1);
 
             document.getElementById(this.dateId).innerHTML = this.pstDate;
-            document.getElementById(this.timeId).innerHTML = this.pstTime;
+            document.getElementById(this.timeId).innerHTML = this.pstStartTime + "-" + this.pstEndTime;
             document.getElementById(this.carId).innerHTML = this.carCount + this.carLabel;
             document.getElementById(this.truckId).innerHTML = this.truckCount + this.truckLabel;
             document.getElementById(this.busId).innerHTML = this.busCount + this.busLabel;
