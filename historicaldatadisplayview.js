@@ -49,7 +49,6 @@ export default class HistoricalDataDisplayView {
                 hour: 'numeric'
             })
             .split(' ')[0];
-            console.log(this.pstStartTime);
 
             this.pstEndTime = new Date(this.model.timestamps[i]).toLocaleTimeString('en-US', {
                 timeZone: 'America/Vancouver',
