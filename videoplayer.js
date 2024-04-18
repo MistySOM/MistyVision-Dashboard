@@ -6,7 +6,7 @@ export default class VideoPlayer {
     }
 
     init() {
-        fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
+        fetch("https://mistyvisionfunctionapp.azurewebsites.net/api/getliveeventoutputhls", {redirect:'follow'}).then(response => {
             console.log(response.url);
             const source = { src:response.url, type:'application/x-mpegURL' };
             const videojs_player = videojs('hls-video', {
