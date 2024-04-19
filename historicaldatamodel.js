@@ -45,7 +45,7 @@ export default class HistoricalDataModel {
 //                console.log('Car count:', item.track_history && item.track_history.car !== undefined ? item.track_history.car : 'Does Not Exist');
 //                console.log('Bus count:', item.track_history && item.track_history.bus !== undefined ? item.track_history.bus : 'Does Not Exist');
 //                console.log('Truck count:', item.track_history && item.track_history.truck !== undefined ? item.track_history.truck : 'Does Not Exist');
-//                console.log('CSV URL:', item.csv_url !== undefined ? item.csv_url : 'Does Not Exist');
+                console.log('CSV URL:', item.csv_url !== undefined ? item.csv_url : 'Does Not Exist');
 //                console.log('Video URL:', Array.isArray(item.video_url) && item.video_url.length > 0 ? item.video_url[0] : 'Does Not Exist');
 //                console.log('---------------------------------------');
 
