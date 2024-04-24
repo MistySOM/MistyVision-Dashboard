@@ -21,20 +21,16 @@ export default class VideoPlayer {
 
                 videojs_player.on('timeupdate', () => {
                     if (videojs_player.liveTracker.atLiveEdge()) {
-                    console.log('Video player is live.');
-                    this.liveVideo = true;
+                        if (this.liveVideo == false) {
+                            console.log('Video player is live.');
+                        }
+                        this.liveVideo = true;
                     } else if (videojs_player.liveTracker.behindLiveEdge()) {
-                    console.log('Video player is not live.');
-                    this.liveVideo = false;
-                    } else {
-                    console.log('Video player is ahead of the live edge.');
-                    this.liveVideo = false;
+                        if (this.liveVideo == true) {
+                            console.log('Video player is not live.');
+                        }
+                        this.liveVideo = false;
                     }
-                });
-
-                videojs_player.on('pause', () => {
-                    console.log('Video player is paused.');
-                    this.liveVideo = false;
                 });
             });
         });

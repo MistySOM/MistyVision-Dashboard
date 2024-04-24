@@ -36,7 +36,6 @@ export default class HistoricalDataModel {
 
     handleHistoricalDataMessage(data) {
         try {
-            console.log('Data received:', data);
             this.dataLength = data.length;
 
             data.forEach(item => {
@@ -58,6 +57,7 @@ export default class HistoricalDataModel {
             });
             this.notify();
         } catch (error) {
+            console.log('Data received:', data);
             console.error('Error parsing Historical Data message:', error);
         }
     }

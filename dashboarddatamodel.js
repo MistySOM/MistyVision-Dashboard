@@ -71,7 +71,6 @@ export default class DashboardDataModel {
     handleWebSocketMessage(event) {
         try {
             const message = JSON.parse(event.data);
-            console.log('Message received:', message);
 
             clearTimeout(this.timeoutId);
             this.startTimeout();
@@ -89,6 +88,7 @@ export default class DashboardDataModel {
 
             this.notify();
         } catch (error) {
+            console.log('Message received:', event.data);
             console.error('Error parsing WebSocket message:', error);
         }
     }

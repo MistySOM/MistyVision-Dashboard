@@ -24,6 +24,7 @@ export default class HistoricalDataDisplayView {
     busId;
     csvURLId;
     videoURLId;
+    videoPlayerId;
 
     constructor(model) {
         this.model = model;
@@ -70,6 +71,7 @@ export default class HistoricalDataDisplayView {
             this.busId = "bus" + (i + 1);
             this.csvURLId = "csv" + (i + 1);
             this.videoURLId = "video" + (i + 1);
+            this.videoPlayerId = "videoplayer" + (i + 1);
 
             document.getElementById(this.dateId).innerHTML = this.pstDate;
             document.getElementById(this.timeId).innerHTML = this.pstStartTime + "-" + this.pstEndTime;
@@ -91,11 +93,12 @@ export default class HistoricalDataDisplayView {
 
             if (this.model.videoURLs[i] == '') {
                 this.videoURL = '';
-                document.getElementById(this.videoURLId).setAttribute('href', 'javascript:void(0)');
+                document.getElementById(this.videoURLId).setAttribute('src', 'javascript:void(0)');
             } else {
                 this.videoURL = this.model.videoURLs[i];
-                document.getElementById(this.videoURLId).setAttribute('href', this.videoURL);
-                document.getElementById(this.videoURLId).setAttribute('target', '_blank');
+                document.getElementById(this.videoURLId).setAttribute('src', this.videoURL);
+                document.getElementById(this.videoPlayerId).load();
+//                document.getElementById(this.videoURLId).setAttribute('target', '_blank');
             }
         }
     }
