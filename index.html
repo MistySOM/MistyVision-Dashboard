@@ -3,7 +3,6 @@
   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>MistySOM Video Stream</title>
 
       <!-- WorkSans Font -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +11,7 @@
 
       <!-- MistyVision Dashboard CSS -->
       <link rel="stylesheet" href="dashboardstyle.css">
+      <link rel="stylesheet" href="videoplayer.css">
 
       <!-- Video JS -->
       <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
@@ -29,13 +29,14 @@
           <div class="sidebar">
               <img src="MistyVision_Cropped.png" alt="MistyVision Logo" class="logo1">
               <p>MistyVision</p>
-              <div class="sidebar-top"></div>
+              <div class="horizontal-divider-top"></div>
               <ul>
-                  <li><a href="https://dash.mistysom.com/">Dashboard</a></li>
+                  <li><a href="index.html">Dashboard</a></li>
+                  <li><a href="historicaldata.html">Historical Data</a></li>
                   <li><a href="https://wiki.mistysom.com/" target="_blank">Support</a></li>
                   <li><a href="https://www.mistywest.com/contact/" target="_blank">Contact Us</a></li>
               </ul>
-              <div class="sidebar-bottom"></div>
+              <div class="horizontal-divider-bottom"></div>
               <a href="https://www.mistywest.com/" target="_blank">
                   <img src="MistyWest_Logo_%23222Background.png" alt="MistyWest Logo" class="logo2">
               </a>
@@ -43,40 +44,12 @@
           <main>
               <div class="row">
                   <div class="video-column">
-<!--                      <div class="device-status">-->
-<!--                          <p>ON</p>-->
-<!--                      </div>-->
-                      <div class="location">
-                          <p>KINGSWAY, VANCOUVER</p>
-                      </div>
+                      <p class="device-status-text">DEVICE STATUS: <span id="device-status" class="device-status"></span> <span class="device-status-divider"> | &nbsp;</span> <span class="location">KINGSWAY, VANCOUVER</span> </p>
                       <div class="video-container">
                           <video id="hls-video" class="video-js" controls>
                               <p>
                                   To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
                               </p>
-                              <script>
-                                  fetch("https://stream-hls.mistysom.com", {redirect:'follow'}).then(response => {
-                                      console.log(response.url);
-                                      const source = { src:response.url, type:'application/x-mpegURL' };
-                                      const videojs_player = videojs('hls-video', {
-                                          autoplay: 'muted',
-                                          liveui: true,
-                                          inactivityTimeout: 0,
-                                          sources: [ source ]
-                                        }, function() {
-                                        console.log('Video-js is ready!');
-                                        const latencyCompensator = new LatencyCompensator(videojs_player);
-                                        latencyCompensator.enable();
-                                      });
-                                  });
-                              </script>
-                              <style>
-                                  .video-js .vjs-volume-panel,
-                                  .video-js .vjs-picture-in-picture-control
-                                  {
-                                  display: none;
-                                  }
-                              </style>
                           </video>
                       </div>
                       <div class="current-time">

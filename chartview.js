@@ -83,7 +83,12 @@ export default class ChartView {
                 ctx.fillStyle = 'white';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText(this.viewModel.totalCount, xCoor, yCoor);
+                if (this.viewModel.messageStatus == false) {
+                    ctx.font = (vh*10).toString() + 'px work sans';
+                    ctx.fillText('UNKNOWN', xCoor, yCoor);
+                } else {
+                    ctx.fillText(this.viewModel.totalCount, xCoor, yCoor);
+                }
 
                 ctx.font = (vh*3).toString() + 'px work sans';
                 ctx.fillStyle = 'white';
@@ -101,41 +106,43 @@ export default class ChartView {
 
                 chart.data.datasets.forEach((dataset, i) => {
                     chart.getDatasetMeta(i).data.forEach((datapoint, index) => {
+                        const dataValue = this.viewModel.data[index];
+                        if (dataValue > 0) {
+                            const {x,y} = datapoint.tooltipPosition();
+                            const datasetLength = chart.getDatasetMeta(i).data.length;
 
-                        const {x,y} = datapoint.tooltipPosition();
-                        const datasetLength = chart.getDatasetMeta(i).data.length;
-
-                        let deltaY = 0;
-                        if (index > 0) {
-                            const prevModel = chart.getDatasetMeta(i).data[index - 1].tooltipPosition();
-                            const prevY = prevModel.y;
-                            if (Math.abs(y - prevY) < 20) {
-                                deltaY = 15 * (y > prevY ? 1 : -1);
+                            let deltaY = 0;
+                            if (index > 0) {
+                                const prevModel = chart.getDatasetMeta(i).data[index - 1].tooltipPosition();
+                                const prevY = prevModel.y;
+                                if (Math.abs(y - prevY) < 20) {
+                                    deltaY = 15 * (y > prevY ? 1 : -1);
+                                }
                             }
-                        }
 
-                        if (index < datasetLength - 1) {
-                            const nextModel = chart.getDatasetMeta(i).data[index + 1].tooltipPosition();
-                            const nextY = nextModel.y;
-                            if (Math.abs(y - nextY) < 20) {
-                                deltaY = 5 * (y > nextY ? 1 : -1);
+                            if (index < datasetLength - 1) {
+                                const nextModel = chart.getDatasetMeta(i).data[index + 1].tooltipPosition();
+                                const nextY = nextModel.y;
+                                if (Math.abs(y - nextY) < 20) {
+                                    deltaY = 5 * (y > nextY ? 1 : -1);
+                                }
                             }
+
+                            const vh = chart.canvas.clientHeight / 100;
+                            const halfwidth = chart.width/2;
+                            const halfheight = chart.height/2;
+                            const angle = Math.atan2(y - halfheight, x - halfwidth);
+                            const radius = Math.min(halfwidth, halfheight) * 0.12;
+
+                            const xLabel = x + radius * Math.cos(angle);
+                            const yLabel = y + deltaY + radius * Math.sin(angle);
+
+                            ctx.font = (vh*3).toString() + 'px work sans';
+                            ctx.fillStyle = 'gray';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(this.viewModel.data[index], xLabel, yLabel);
                         }
-
-                        const vh = chart.canvas.clientHeight / 100;
-                        const halfwidth = chart.width/2;
-                        const halfheight = chart.height/2;
-                        const angle = Math.atan2(y - halfheight, x - halfwidth);
-                        const radius = Math.min(halfwidth, halfheight) * 0.12;
-
-                        const xLabel = x + radius * Math.cos(angle);
-                        const yLabel = y + deltaY + radius * Math.sin(angle);
-
-                        ctx.font = (vh*3).toString() + 'px work sans';
-                        ctx.fillStyle = 'gray';
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(this.viewModel.data[index], xLabel, yLabel);
                     });
                 });
             }

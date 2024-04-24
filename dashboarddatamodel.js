@@ -10,6 +10,7 @@ export default class DashboardDataModel {
     truckCount;
     timePortion;
     pstDateTime;
+    messageStatus;
 
     subscribe = function(listener){
         this.listeners.push(listener);
@@ -17,12 +18,11 @@ export default class DashboardDataModel {
 
     constructor() {
         this.websocket = null;
+        this.messageStatus = false;
         this.initializeWebSocket();
         this.listeners = [];
 
-//        setInterval(() => {
-//            this.initializeWebSocket();
-//        }, 1000);
+        this.startTimeout();
 
         this.notify = function(){
             for(var i = 0; i < this.listeners.length; i++){
@@ -55,23 +55,40 @@ export default class DashboardDataModel {
         .catch(error => console.error('Fetching Web PubSub token failed:', error));
     }
 
+    startTimeout() {
+        // Start the timeout
+        this.timeoutId = setTimeout(() => {
+            this.sendTimeoutMessage();
+        }, 15000);
+    }
+
+    sendTimeoutMessage() {
+        // Notifies that there has been no new data
+        this.messageStatus = false;
+        this.notify();
+    }
+
     handleWebSocketMessage(event) {
         try {
             const message = JSON.parse(event.data);
-            console.log('Message received:', message);
 
+            clearTimeout(this.timeoutId);
+            this.startTimeout();
+
+            this.messageStatus = true;
             this.videoRate = isNaN(parseInt(message["video_rate"])) ? -1 : parseInt(message["video_rate"]);
             this.drpaiRate = isNaN(parseInt(message["drpai_rate"])) ? -1 : parseInt(message["drpai_rate"]);
             this.timestamp = message.timestamp || "N/A";
             this.trackHistory = message.track_history || {};
             this.minutes = isNaN(parseInt(this.trackHistory.minutes)) ? -1 : parseInt(this.trackHistory.minutes);
-            this.totalCount = isNaN(parseInt(this.trackHistory.total_count)) ? -1 : parseInt(this.trackHistory.total_count);
-            this.carCount = isNaN(parseInt(this.trackHistory.car)) ? -1 : parseInt(this.trackHistory.car);
-            this.busCount = isNaN(parseInt(this.trackHistory.bus)) ? -1 : parseInt(this.trackHistory.bus);
-            this.truckCount = isNaN(parseInt(this.trackHistory.truck)) ? -1 : parseInt(this.trackHistory.truck);
+            this.totalCount = isNaN(parseInt(this.trackHistory.total_count)) ? "UNKNOWN" : parseInt(this.trackHistory.total_count);
+            this.carCount = isNaN(parseInt(this.trackHistory.car)) ? 0 : parseInt(this.trackHistory.car);
+            this.busCount = isNaN(parseInt(this.trackHistory.bus)) ? 0 : parseInt(this.trackHistory.bus);
+            this.truckCount = isNaN(parseInt(this.trackHistory.truck)) ? 0 : parseInt(this.trackHistory.truck);
 
             this.notify();
         } catch (error) {
+            console.log('Message received:', event.data);
             console.error('Error parsing WebSocket message:', error);
         }
     }
