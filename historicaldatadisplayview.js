@@ -98,7 +98,6 @@ export default class HistoricalDataDisplayView {
                 this.videoURL = this.model.videoURLs[i];
                 document.getElementById(this.videoURLId).setAttribute('src', this.videoURL);
                 document.getElementById(this.videoPlayerId).load();
-//                document.getElementById(this.videoURLId).setAttribute('target', '_blank');
             }
         }
     }
