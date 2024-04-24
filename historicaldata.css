@@ -146,10 +146,13 @@ td {
 
 .video {
     overflow: hidden;
-    width: 11vw;
-    height: 8.25vw;
     border: 0.1vw solid #5cfdc6;
     border-radius: 1vw;
+}
+
+.video > video {
+    width: 11vw;
+    height: 8.25vw;
 }
 
 .csv-download a {
