@@ -41,8 +41,9 @@ body {
     margin-bottom: 1.5vh; /* Bottom margin */
 }
 
-/* Top horizontal divider in the sidebar */
-.horizontal-divider-top {
+/* Horizontal divider styles */
+.horizontal-divider-top,
+.horizontal-divider-bottom {
     width: 8vw; /* Width of the divider */
     border-top: 0.1em solid #555; /* Top border style */
 }

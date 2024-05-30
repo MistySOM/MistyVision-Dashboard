@@ -77,6 +77,14 @@ body {
     background-color: #555; /* Change background color on hover */
 }
 
+/* Bottom horizontal divider in the sidebar */
+.horizontal-divider-bottom {
+    width: 8vw; /* Width of the divider */
+    border-top: 0.1em solid #555; /* Top border style */
+    margin-top: 6vh; /* Top margin */
+    margin-bottom: 0.5vh; /* Bottom margin */
+}
+
 /* Logo styles */
 .logo2 {
     width: 6vw; /* Set width */
