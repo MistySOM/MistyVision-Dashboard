@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
+      <!-- Metadata for character encoding and viewport settings -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,11 +26,15 @@
       <script type="module" src="dashboardengine.js"></script>
   </head>
   <body>
+      <!-- Main container for the dashboard layout -->
       <div class="container">
+          <!-- Sidebar with navigation links -->
           <div class="sidebar">
+              <!-- Logo and branding -->
               <img src="MistyVision_Cropped.png" alt="MistyVision Logo" class="logo1">
               <p>MistyVision</p>
               <div class="horizontal-divider-top"></div>
+              <!-- Navigation menu -->
               <ul>
                   <li><a href="index.html">Dashboard</a></li>
                   <li><a href="historicaldata.html">Historical Data</a></li>
@@ -37,14 +42,19 @@
                   <li><a href="https://www.mistywest.com/contact/" target="_blank">Contact Us</a></li>
               </ul>
               <div class="horizontal-divider-bottom"></div>
+              <!-- Link to the MistyWest website with logo -->
               <a href="https://www.mistywest.com/" target="_blank">
                   <img src="MistyWest_Logo_%23222Background.png" alt="MistyWest Logo" class="logo2">
               </a>
           </div>
+          <!-- Main content section -->
           <main>
               <div class="row">
+                  <!-- Column for video display and related information -->
                   <div class="video-column">
+                      <!-- Device status and location -->
                       <p class="device-status-text">DEVICE STATUS: <span id="device-status" class="device-status"></span> <span class="device-status-divider"> | &nbsp;</span> <span class="location">KINGSWAY, VANCOUVER</span> </p>
+                      <!-- Video container for HLS video -->
                       <div class="video-container">
                           <video id="hls-video" class="video-js" controls>
                               <p>
@@ -52,19 +62,25 @@
                               </p>
                           </video>
                       </div>
+                      <!-- Display for current time -->
                       <div class="current-time">
                           <p>CURRENT TIME :&nbsp; <span class="time" id="timePortion"></span></p>
                       </div>
+                      <!-- Display for video rate -->
                       <div class="video-rate">
                           <p>VIDEO RATE &nbsp;&nbsp;&nbsp;&thinsp;&thinsp;&hairsp;:&nbsp; <span class="videorate" id="videoRate"></span></p>
                       </div>
+                      <!-- Display for DRPAI rate -->
                       <div class="drpai-rate">
                           <p>DRPAI RATE &nbsp;&nbsp;&nbsp;&nbsp;&emsp14;:&nbsp; <span class="drpairate" id="drpaiRate"></span></p>
                       </div>
                   </div>
+                  <!-- Vertical divider between columns -->
                   <div class="vertical-divider"></div>
+                  <!-- Column for chart display -->
                   <div class="chart-column">
                       <div class="chart">
+                          <!-- Canvas element for Chart.js -->
                           <canvas id="dashboardChart"></canvas>
                       </div>
                   </div>

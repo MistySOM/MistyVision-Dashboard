@@ -1,176 +1,193 @@
+/* Global styles */
 body {
-    font-family: 'Work Sans';
-    background-color: #191C20;
-    color: white;
-    margin: 0;
-    height: 100%;
+    font-family: 'Work Sans'; /* Set the font family for the entire document */
+    background-color: #191C20; /* Set background color */
+    color: white; /* Set text color */
+    margin: 0; /* Remove default margin */
+    height: 100%; /* Set full height */
 }
 
+/* Container styles */
 .container {
-    display: flex;
-    height: 100%;
-    overflow: auto;
+    display: flex; /* Use flexbox for layout */
+    height: 100%; /* Set full height */
+    overflow: auto; /* Allow overflow */
 }
 
+/* Sidebar styles */
 .sidebar {
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    width: 9.5vw;
-    background-color: #222;
-    color: white;
-    padding: 1vh;
-    z-index: 2;
-    font-size: 1vw;
-    box-shadow: 0.7vw 0 1.3vw rgba(0, 0, 0, 0.5);
+    display: flex; /* Use flexbox for layout */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100vh; /* Set full height of the viewport */
+    width: 9.5vw; /* Set fixed width */
+    background-color: #222; /* Set background color */
+    color: white; /* Set text color */
+    padding: 1vh; /* Add padding */
+    z-index: 2; /* Set z-index */
+    font-size: 1vw; /* Set font size */
+    box-shadow: 0.7vw 0 1.3vw rgba(0, 0, 0, 0.5); /* Add box shadow */
 }
 
+/* Logo styles */
 .logo1 {
-    width: 3vw;
+    width: 3vw; /* Set width */
 }
 
+/* Paragraph styles */
 .sidebar p {
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
+    margin-top: 1.5vh; /* Set top margin */
+    margin-bottom: 1.5vh; /* Set bottom margin */
 }
 
-.horizontal-divider-top {
-    width: 8vw;
-    border-top: 0.1em solid #555;
-}
-
-.sidebar ul li a {
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    color: white;
-    font-size: 0.9vw;
-    padding: 1.2vh 1.5vh;
-    background-color: transparent;
-    border-radius: 0.8vw;
-    transition: background-color 0.3s, color 0.3s;
-    margin-bottom: 1vh;
-}
-
-.sidebar ul {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    list-style: none;
-    padding: 0vh;
-}
-
-.sidebar ul li a:hover {
-    background-color: #555;
-}
-
+/* Horizontal divider styles */
+.horizontal-divider-top,
 .horizontal-divider-bottom {
-    width: 8vw;
-    border-top: 0.1em solid #555;
-    margin-top: 6vh;
-    margin-bottom: 0.5vh;
+    width: 8vw; /* Set width */
+    border-top: 0.1em solid #555; /* Set border color and style */
 }
 
+/* Navigation link styles */
+.sidebar ul li a {
+    text-align: center; /* Center text */
+    display: block; /* Display as block */
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set text color */
+    font-size: 0.9vw; /* Set font size */
+    padding: 1.2vh 1.5vh; /* Add padding */
+    background-color: transparent; /* Set background color */
+    border-radius: 0.8vw; /* Set border radius */
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+    margin-bottom: 1vh; /* Set bottom margin */
+}
+
+/* Sidebar list styles */
+.sidebar ul {
+    flex: 1; /* Grow to fill remaining space */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center items vertically */
+    list-style: none; /* Remove list styles */
+    padding: 0; /* Remove default padding */
+}
+
+/* Navigation link hover styles */
+.sidebar ul li a:hover {
+    background-color: #555; /* Change background color on hover */
+}
+
+/* Logo styles */
 .logo2 {
-    width: 6vw;
+    width: 6vw; /* Set width */
 }
 
+/* Main content styles */
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    height: 100vh;
-    overflow: auto;
-    box-sizing: border-box;
+    flex: 1; /* Grow to fill remaining space */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    position: relative; /* Set position */
+    z-index: 1; /* Set z-index */
+    height: 100vh; /* Set full height of the viewport */
+    overflow: auto; /* Allow overflow */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
+/* Table styles */
 table {
-    flex: 1;
-    display: flex;
-    padding: 5vh;
+    flex: 1; /* Grow to fill remaining space */
+    display: flex; /* Use flexbox for layout */
+    padding: 5vh; /* Add padding */
 }
 
+/* Table body styles */
 tbody {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    flex: 1; /* Grow to fill remaining space */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
 }
 
+/* Table row styles */
 tr {
-    flex: 1;
-    display: flex;
+    flex: 1; /* Grow to fill remaining space */
+    display: flex; /* Use flexbox for layout */
 }
 
+/* Table data cell styles */
 td {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex: 1; /* Grow to fill remaining space */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
 }
 
+/* Historical data date styles */
 .historical-data-date p {
-    display: flex;
-    margin: 0;
-    font-size: 1.2vw;
-    color: gray;
+    display: flex; /* Use flexbox for layout */
+    margin: 0; /* Remove default margin */
+    font-size: 1.2vw; /* Set font size */
+    color: gray; /* Set text color */
 }
 
+/* Historical data time styles */
 .historical-data-time p {
-    display: flex;
-    margin: 0;
-    font-size: 2vw;
-    margin-bottom: 0.5vh;
+    display: flex; /* Use flexbox for layout */
+    margin: 0; /* Remove default margin */
+    font-size: 2vw; /* Set font size */
+    margin-bottom: 0.5vh; /* Set bottom margin */
 }
 
+/* Vehicle count styles */
 .vehicle-count p {
-    display: flex;
-    font-size: 1vw;
-    margin: 0.3vh;
-    justify-content: center;
+    display: flex; /* Use flexbox for layout */
+    font-size: 1vw; /* Set font size */
+    margin: 0.3vh; /* Set margin */
+    justify-content: center; /* Center items horizontally */
 }
 
+/* Video and CSV download styles */
 .video,
 .csv-download {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-size: 1vw;
-    margin-top: 1vh;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    color: white; /* Set text color */
+    font-size: 1vw; /* Set font size */
+    margin-top: 1vh; /* Set top margin */
 }
 
+/* Video container styles */
 .video {
-    overflow: hidden;
-    border: 0.1vw solid #5cfdc6;
-    border-radius: 1vw;
+    overflow: hidden; /* Hide overflow */
+    border: 0.1vw solid #5cfdc6; /* Set border */
+    border-radius: 1vw; /* Set border radius */
 }
 
+/* Video styles */
 .video > video {
-    width: 11vw;
-    height: 8.25vw;
+    width: 11vw; /* Set width */
+    height: 8.25vw; /* Set height */
 }
 
+/* CSV download link styles */
 .csv-download a {
-    flex-direction: column;
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    color: white;
-    font-size: 0.9vw;
-    padding: 1vh 1.5vh;
-    background-color: #555;
-    border-radius: 0.8vw;
-    transition: background-color 0.3s, color 0.3s;
+    flex-direction: column; /* Arrange items vertically */
+    text-align: center; /* Center text */
+    display: block; /* Display as block */
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set text color */
+    font-size: 0.9vw; /* Set font size */
+    padding: 1vh 1.5vh; /* Add padding */
+    background-color: #555; /* Set background color */
+    border-radius: 0.8vw; /* Set border radius */
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
 }
 
+/* Horizontal divider styles */
 .horizontal-divider {
-    flex: 0;
-    margin: auto;
-    width: 80vw;
-    border-top: 0.5vh solid #555;
+    flex: 0; /* Do not grow or shrink */
+    margin: auto; /* Center horizontally */
+    width: 80vw; /* Set width */
+    border-top: 0.5vh solid #555; /* Set border color and width */
 }
