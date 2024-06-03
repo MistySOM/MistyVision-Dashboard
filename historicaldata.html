@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
+      <!-- Metadata for character encoding and viewport settings -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,11 +17,15 @@
       <script type="module" src="historicaldataengine.js"></script>
   </head>
   <body>
+      <!-- Main container for the historical data page layout -->
       <div class="container">
+          <!-- Sidebar with navigation links -->
           <div class="sidebar">
+              <!-- Logo and branding -->
               <img src="MistyVision_Cropped.png" alt="MistyVision Logo" class="logo1">
               <p>MistyVision</p>
               <div class="horizontal-divider-top"></div>
+              <!-- Navigation menu -->
               <ul>
                   <li><a href="index.html">Dashboard</a></li>
                   <li><a href="historicaldata.html">Historical Data</a></li>
@@ -28,35 +33,45 @@
                   <li><a href="https://www.mistywest.com/contact/" target="_blank">Contact Us</a></li>
               </ul>
               <div class="horizontal-divider-bottom"></div>
+              <!-- Link to the MistyWest website with logo -->
               <a href="https://www.mistywest.com/" target="_blank">
                   <img src="MistyWest_Logo_%23222Background.png" alt="MistyWest Logo" class="logo2">
               </a>
           </div>
+          <!-- Main content section -->
           <main>
+              <!-- Table for displaying historical data -->
               <table>
                   <tbody>
+                      <!-- Rows for displaying data -->
                       <tr>
+                          <!-- First row of data -->
                           <td>
+                              <!-- Date and Time -->
                               <div class="historical-data-date">
                                   <p id="date1"</p>
                               </div>
                               <div class="historical-data-time">
                                   <p id="time1"</p>
                               </div>
+                              <!-- Vehicle Count -->
                               <div class="vehicle-count">
                                   <p id="car1"</p>
                                   <p id="truck1"</p>
                                   <p id="bus1"</p>
                               </div>
+                              <!-- Video Player -->
                               <div class="video">
                                   <video id="videoplayer1" controls preload="metadata" >
                                       <source id="video1" src="" type="video/mp4">
                                   </video>
                               </div>
+                              <!-- CSV Data Download Link -->
                               <div class="csv-download">
                                   <a id="csv1" href="">CSV Data Download</a>
                               </div>
                           </td>
+                          <!-- Additional similar data cells for other rows -->
                           <td>
                               <div class="historical-data-date">
                                   <p id="date2"</p>
@@ -121,7 +136,9 @@
                               </div>
                           </td>
                       </tr>
+                      <!-- Horizontal divider between rows -->
                       <tr class="horizontal-divider"></tr>
+                      <!-- Second row with identical structure -->
                       <tr>
                           <td>
                               <div class="historical-data-date">

@@ -1,4 +1,6 @@
+// Define and export the HistoricalDataModel class
 export default class HistoricalDataModel {
+    // Declare properties for the historical data model
     timestamps = [];
     carCounts = [];
     busCounts = [];
@@ -7,14 +9,17 @@ export default class HistoricalDataModel {
     videoURLs = [];
     dataLength;
 
+    // Method to subscribe listeners for data updates
     subscribe = function(listener){
         this.listeners.push(listener);
     }
 
+    // Constructor to initialize the model and fetch historical data
     constructor() {
         this.fetchHistoricalData();
         this.listeners = [];
 
+        // Method to notify all listeners about data updates
         this.notify = function(){
             for(var i = 0; i < this.listeners.length; i++){
                 var callback = this.listeners[i];
@@ -23,9 +28,10 @@ export default class HistoricalDataModel {
         };
     }
 
+    // Method to fetch historical data from the server
     fetchHistoricalData() {
         fetch('https://mistyvisionfunctionapp.azurewebsites.net/api/getHourlyVideoMetaData?count=8')
-        .then(response => response.json())
+        .then(response => response.json()) // Convert response to JSON format
         .then(data => {
             this.handleHistoricalDataMessage(data);
         })
@@ -34,10 +40,12 @@ export default class HistoricalDataModel {
         });
     }
 
+    // Method to handle the received historical data
     handleHistoricalDataMessage(data) {
         try {
             this.dataLength = data.length;
 
+            // Loop through each item in the data
             data.forEach(item => {
 //                console.log('Timestamp:', item.timestamp);
 //                console.log('Total count:', item.track_history && item.track_history.total_count !== undefined ? item.track_history.total_count : 'Does Not Exist');
@@ -48,6 +56,7 @@ export default class HistoricalDataModel {
 //                console.log('Video URL:', Array.isArray(item.video_url) && item.video_url.length > 0 ? item.video_url[0] : 'Does Not Exist');
 //                console.log('---------------------------------------');
 
+                // Populate arrays with timestamps, counts, and URLs
                 this.timestamps.push(item.timestamp);
                 this.carCounts.push(item.track_history && item.track_history.car !== undefined ? item.track_history.car : 0);
                 this.busCounts.push(item.track_history && item.track_history.bus !== undefined ? item.track_history.bus : 0);

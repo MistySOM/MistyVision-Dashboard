@@ -1,72 +1,83 @@
+/* Global styles for the body */
 body {
     font-family: 'Work Sans';
     background-color: #191C20;
     color: white;
-    margin: 0;
-    height: 100%;
+    margin: 0; /* Remove default margin */
+    height: 100%; /* Set height to 100% of the viewport */
 }
 
+/* Main container for the dashboard layout */
 .container {
-    display: flex;
-    height: 100%;
-    overflow: auto;
+    display: flex; /* Use flexbox for layout */
+    height: 100%; /* Full height of the viewport */
+    overflow: auto; /* Allow scrolling if content overflows */
 }
 
+/* Sidebar styles */
 .sidebar {
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    width: 9.5vw;
+    display: flex; /* Use flexbox for layout */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center align items horizontally */
+    height: 100vh; /* Full height of the viewport */
+    width: 9.5vw; /* Fixed width for sidebar */
     background-color: #222;
-    color: white;
-    padding: 1vh;
-    z-index: 2;
+    color: white; /* Text color for sidebar */
+    padding: 1vh; /* Padding inside the sidebar */
+    z-index: 2; /* Ensure sidebar is above other content */
     font-size: 1vw;
-    box-shadow: 0.7vw 0 1.3vw rgba(0, 0, 0, 0.5);
+    box-shadow: 0.7vw 0 1.3vw rgba(0, 0, 0, 0.5); /* Shadow effect for sidebar */
 }
 
+/* Logo in the sidebar */
 .logo1 {
     width: 3vw;
 }
 
+/* Paragraph styles in the sidebar */
 .sidebar p {
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
 }
 
-.horizontal-divider-top {
+/* Horizontal divider styles */
+.horizontal-divider-top,
+.horizontal-divider-bottom {
     width: 8vw;
     border-top: 0.1em solid #555;
 }
 
+/* Sidebar navigation links */
 .sidebar ul li a {
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    color: white;
+    text-align: center; /* Center align text */
+    display: block; /* Display as block element */
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Text color */
     font-size: 0.9vw;
-    padding: 1.2vh 1.5vh;
+    padding: 1.2vh 1.5vh; /* Padding inside the link */
     background-color: transparent;
     border-radius: 0.8vw;
     transition: background-color 0.3s, color 0.3s;
     margin-bottom: 1vh;
 }
 
+/* Sidebar navigation list */
 .sidebar ul {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    list-style: none;
-    padding: 0vh;
+    flex: 1; /* Allow list to grow */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items vertically */
+    list-style: none; /* Remove default list styling */
+    padding: 0vh; /* Remove default padding */
 }
 
+/* Hover effect for sidebar navigation links */
 .sidebar ul li a:hover {
-    background-color: #555;
+    background-color: #555; /* Background color on hover */
 }
 
+/* Bottom horizontal divider in the sidebar */
 .horizontal-divider-bottom {
     width: 8vw;
     border-top: 0.1em solid #555;
@@ -74,84 +85,92 @@ body {
     margin-bottom: 0.5vh;
 }
 
+/* Second logo in the sidebar */
 .logo2 {
     width: 6vw;
 }
 
+/* Main content area */
 main {
-    flex: 1;
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    height: 100vh;
-    overflow: auto;
-    box-sizing: border-box;
+    flex: 1; /* Allow main content to grow */
+    flex-direction: row; /* Arrange children in a row */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center align content horizontally */
+    position: relative; /* Position relative for z-index */
+    z-index: 1; /* Ensure content is above other elements */
+    height: 100vh; /* Full height of the viewport */
+    overflow: auto; /* Allow scrolling if content overflows */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
+/* Row inside the main content */
 .row {
-    flex: 1;
-    display: flex;
-    align-items: center;
+    flex: 1; /* Allow row to grow */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center align items vertically */
 }
 
+/* Column for video display and related information */
 .video-column {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    flex: 1; /* Allow column to grow */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center align content horizontally */
+    flex-direction: column; /* Arrange children in a column */
 }
 
+/* Device status text */
 .device-status-text {
     margin-left: 6vw;
     color: #5cfdc6;
     font-size: 1vw;
 }
 
+/* Device status indicator */
 .device-status {
     font-size: 1vw;
 }
 
+/* Device status colors */
 .device-status-on {
     color: #1ef52b;
 }
 
+/* No video no data device satus colors */
 .device-status-no-vid-no-data {
     color: #f2c55c;
 }
 
+/* Offline device status colors */
 .device-status-offline {
     color: #808080;
 }
 
-.device-status-text {
-    color: #5cfdc6;
-    font-size: 1vw;
-}
-
+/* Location text */
 .location {
     color: white;
     font-size: 1vw;
 }
 
+/* Video container */
 .video-container {
-    overflow: auto;
-    width: min-content;
+    overflow: auto; /* Allow scrolling if content overflows */
+    width: min-content; /* Minimum width based on content */
     margin-left: 6vw;
     border: 0.2vw solid #5cfdc6;
     border-radius: 1.5vw;
 }
 
+/* Video.js player */
 .video-js {
     width: 34vw;
     height: 25.5vw;
 }
 
+/* Text styles for current time, video rate, and DRPAI rate */
 .current-time p,
 .video-rate p,
 .drpai-rate p {
-    display: flex;
+    display: flex; /* Use flexbox for layout */
     margin-left: 6vw;
     margin-bottom: 0vh;
     color: #5cfdc6;
@@ -159,29 +178,33 @@ main {
     font-size: 1vw;
 }
 
+/* Styles for time, video rate, and DRPAI rate values */
 .time,
 .videorate,
 .drpairate {
     font-size: 1.1vw;
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
     color: white;
     height: 1.1vh;
 }
 
+/* Vertical divider between columns */
 .vertical-divider {
     width: 0.2vw;
     height: 82vh;
     background-color: #555;
 }
 
+/* Column for chart display */
 .chart-column {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    flex: 1; /* Allow column to grow */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center align content horizontally */
+    flex-direction: column; /* Arrange children in a column */
 }
 
+/* Chart container */
 .chart {
     width: 38vw;
     height: 38vw;
