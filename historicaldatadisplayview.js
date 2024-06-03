@@ -31,8 +31,8 @@ export default class HistoricalDataDisplayView {
 
     // Constructor to initialize the model and subscribe to updates
     constructor(model) {
-        this.model = model; // Assign the historical data model
-        this.model.subscribe(this.updateHistoricalDataDisplay.bind(this)); // Subscribe to updates from the model
+        this.model = model;
+        this.model.subscribe(this.updateHistoricalDataDisplay.bind(this));
     }
 
     // Method to update historical data display

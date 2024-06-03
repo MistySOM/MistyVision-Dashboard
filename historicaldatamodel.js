@@ -11,40 +11,39 @@ export default class HistoricalDataModel {
 
     // Method to subscribe listeners for data updates
     subscribe = function(listener){
-        this.listeners.push(listener); // Add listener to the list
+        this.listeners.push(listener);
     }
 
     // Constructor to initialize the model and fetch historical data
     constructor() {
-        this.fetchHistoricalData(); // Fetch historical data from the server
-        this.listeners = []; // Initialize listeners array
+        this.fetchHistoricalData();
+        this.listeners = [];
 
         // Method to notify all listeners about data updates
         this.notify = function(){
             for(var i = 0; i < this.listeners.length; i++){
                 var callback = this.listeners[i];
-                callback(); // Execute each listener's callback function
+                callback();
             }
         };
     }
 
     // Method to fetch historical data from the server
     fetchHistoricalData() {
-        // Fetch data from the specified URL
         fetch('https://mistyvisionfunctionapp.azurewebsites.net/api/getHourlyVideoMetaData?count=8')
         .then(response => response.json()) // Convert response to JSON format
         .then(data => {
-            this.handleHistoricalDataMessage(data); // Handle the received historical data
+            this.handleHistoricalDataMessage(data);
         })
         .catch(error => {
-            console.error('Error fetching data:', error); // Log error if fetching data fails
+            console.error('Error fetching data:', error);
         });
     }
 
     // Method to handle the received historical data
     handleHistoricalDataMessage(data) {
         try {
-            this.dataLength = data.length; // Store the length of the data
+            this.dataLength = data.length;
 
             // Loop through each item in the data
             data.forEach(item => {
@@ -65,10 +64,10 @@ export default class HistoricalDataModel {
                 this.csvURLs.push(item.csv_url !== undefined ? item.csv_url : '');
                 this.videoURLs.push(Array.isArray(item.video_url) && item.video_url.length > 0 ? item.video_url[0] : '');
             });
-            this.notify(); // Notify listeners after processing data
+            this.notify();
         } catch (error) {
-            console.log('Data received:', data); // Log received data
-            console.error('Error parsing Historical Data message:', error); // Log error if parsing data fails
+            console.log('Data received:', data);
+            console.error('Error parsing Historical Data message:', error);
         }
     }
 }

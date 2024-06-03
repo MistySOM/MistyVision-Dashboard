@@ -19,27 +19,26 @@ export default class DashboardDataModel {
         this.listeners.push(listener); // Add listener to the list
     }
 
-    // Constructor to initialize the data model
+    // Constructor to initialize the data model and start timeout
     constructor() {
-        this.websocket = null; // Initialize WebSocket connection as null
-        this.messageStatus = false; // Initialize message status as false
-        this.initializeWebSocket(); // Call method to initialize WebSocket
-        this.listeners = []; // Initialize an array for listeners
+        this.websocket = null;
+        this.messageStatus = false;
+        this.initializeWebSocket();
+        this.listeners = [];
 
-        this.startTimeout(); // Start the timeout for message status
+        this.startTimeout();
 
         // Method to notify all listeners about data updates
         this.notify = function() {
             for (var i = 0; i < this.listeners.length; i++) {
                 var callback = this.listeners[i];
-                callback(); // Execute each listener's callback function
+                callback();
             }
         };
     }
 
     // Method to initialize WebSocket connection
     initializeWebSocket() {
-        // Fetch WebSocket token from the server
         fetch('https://mistyvisionfunctionapp.azurewebsites.net/api/getWebPubSubToken')
         .then(response => response.text()) // Get the token as text
         .then(url => {
@@ -64,7 +63,7 @@ export default class DashboardDataModel {
                 console.log('Connection closed', event.reason, 'Code:', event.code);
             };
         })
-        .catch(error => console.error('Fetching Web PubSub token failed:', error)); // Handle fetch errors
+        .catch(error => console.error('Fetching Web PubSub token failed:', error));
     }
 
     // Method to start a timeout for checking message status
@@ -72,7 +71,7 @@ export default class DashboardDataModel {
         // Start the timeout to send a timeout message after 15 seconds
         this.timeoutId = setTimeout(() => {
             this.sendTimeoutMessage();
-        }, 15000); // 15 seconds
+        }, 15000);
     }
 
     // Method to send a timeout message indicating no new data
@@ -88,11 +87,10 @@ export default class DashboardDataModel {
             // Parse the incoming message as JSON
             const message = JSON.parse(event.data);
 
-            // Clear the previous timeout and start a new one
             clearTimeout(this.timeoutId);
             this.startTimeout();
 
-            this.messageStatus = true; // Set message status to true
+            this.messageStatus = true;
 
             // Update the model properties with received data
             this.videoRate = isNaN(parseInt(message["video_rate"])) ? -1 : parseInt(message["video_rate"]);
@@ -105,11 +103,11 @@ export default class DashboardDataModel {
             this.busCount = isNaN(parseInt(this.trackHistory.bus)) ? 0 : parseInt(this.trackHistory.bus);
             this.truckCount = isNaN(parseInt(this.trackHistory.truck)) ? 0 : parseInt(this.trackHistory.truck);
 
-            this.notify(); // Notify listeners about the updated data
+            this.notify();
         } catch (error) {
             // Log the received message and error if parsing fails
-            console.log('Message received:', event.data); // Log received data
-            console.error('Error parsing WebSocket message:', error); // Log error if parsing data fails
+            console.log('Message received:', event.data);
+            console.error('Error parsing WebSocket message:', error);
         }
     }
 }

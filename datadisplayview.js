@@ -13,9 +13,9 @@ export default class DataDisplayView {
 
     // Constructor to initialize the data display view with the model and video player
     constructor(model, videoPlayer) {
-        this.model = model; // Assign the model to an instance variable
-        this.videoPlayer = videoPlayer; // Assign the video player to an instance variable
-        this.model.subscribe(this.updateDashboardDisplay.bind(this)); // Subscribe to model updates
+        this.model = model;
+        this.videoPlayer = videoPlayer;
+        this.model.subscribe(this.updateDashboardDisplay.bind(this));
     }
 
     // Method to update the dashboard display based on the model and video player state

@@ -1,22 +1,21 @@
 export default class VideoPlayer {
 
     constructor() {
-        this.liveVideo = false; // Initialize the liveVideo flag to false
-        this.init(); // Call the init method to initialize the video player
+        this.liveVideo = false;
+        this.init();
     }
 
     init() {
-        // Fetch the HLS stream URL from the specified endpoint
         fetch("https://mistyvisionfunctionapp.azurewebsites.net/api/getliveeventoutputhls", {redirect:'follow'}).then(response => {
             console.log(response.url);
             const source = { src:response.url, type:'application/x-mpegURL' }; // Create a source object for the HLS stream
 
             // Initialize the Video.js player with the specified options and source
             const videojs_player = videojs('hls-video', {
-                autoplay: 'muted', // Autoplay the video in muted mode
-                liveui: true, // Enable live UI features
+                autoplay: 'muted',
+                liveui: true,
                 inactivityTimeout: 0, // Disable inactivity timeout
-                sources: [source] // Set the source for the video player
+                sources: [source]
             }, () => {
                 console.log('Video-js is ready!');
 

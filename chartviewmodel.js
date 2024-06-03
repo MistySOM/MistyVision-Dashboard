@@ -19,11 +19,12 @@ export default class ChartViewModel {
 
     // Constructor to initialize the chart view model with the dashboard data model
     constructor(model) {
-        this.model = model; // Assign the model to an instance variable
-        this.model.subscribe(this.updateChartData.bind(this)); // Subscribe to model updates
-        this.listeners = []; // Initialize an empty array for listeners
+        this.model = model;
+        this.model.subscribe(this.updateChartData.bind(this));
+        this.listeners = [];
+
+        // Method to notify all listeners about data updates
         this.notify = function(){
-            // Notify all subscribed listeners of updates
             for (var i = 0; i < this.listeners.length; i++){
                 var callback = this.listeners[i];
                 callback();
@@ -33,7 +34,6 @@ export default class ChartViewModel {
 
     // Method to update the chart data based on the model state
     updateChartData() {
-        // Check if the message status is false
         if (this.model.messageStatus == false) {
             // If no message status, reset data and counts
             this.totalCount = null;
@@ -54,7 +54,6 @@ export default class ChartViewModel {
             this.messageStatus = this.model.messageStatus;
         }
 
-        // Notify all subscribed listeners of the update
         this.notify();
     }
 }

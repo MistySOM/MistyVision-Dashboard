@@ -6,19 +6,12 @@ import ChartViewModel from './chartviewmodel.js';
 import ChartView from './chartview.js';
 
 // Wait for the DOM content to be fully loaded before executing the script
+// Initialize the video player, the data model for the dashboard, the data display view,
+// the chart view model, and the chart view
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the video player
     const videoPlayer = new VideoPlayer();
-
-    // Initialize the data model for the dashboard
     const dataModel = new DashboardDataModel();
-
-    // Initialize the data display view, passing the data model and video player
     const dataDisplayView = new DataDisplayView(dataModel, videoPlayer);
-
-    // Initialize the chart view model, passing the data model
     const chartViewModel = new ChartViewModel(dataModel);
-
-    // Initialize the chart view, passing the chart view model
     const chartView = new ChartView(chartViewModel);
 });
