@@ -20,15 +20,15 @@ export default class VideoPlayer {
                 console.log('Video-js is ready!');
 
                 const change = () => {
-                    if (videojs_player.liveTracker.atLiveEdge() || (videojs_player.duration() === Infinity && videojs_player.playing())) {
+                    if (videojs_player.liveTracker.atLiveEdge() || (videojs_player.duration() === Infinity && !videojs_player.paused())) {
                         // If the player is at the live edge and was not previously live, log the status and update the flag
-                        if (this.liveVideo == false) {
+                        if (this.liveVideo === false) {
                             console.log('Video player is live.');
                         }
                         this.liveVideo = true;
-                    } else if (videojs_player.liveTracker.behindLiveEdge() || !(videojs_player.duration() === Infinity && videojs_player.playing())) {
+                    } else if (videojs_player.liveTracker.behindLiveEdge() || !(videojs_player.duration() === Infinity && !videojs_player.paused())) {
                         // If the player is behind the live edge and was previously live, log the status and update the flag
-                        if (this.liveVideo == true) {
+                        if (this.liveVideo === true) {
                             console.log('Video player is not live.');
                         }
                         this.liveVideo = false;
