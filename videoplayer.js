@@ -27,12 +27,12 @@ export default class VideoPlayer {
     };
 
     change() {
-        if (this.videojs_player.liveTracker.atLiveEdge()) {
+        if ((this.videojs_player.liveTracker != null && this.videojs_player.liveTracker.atLiveEdge()) || this.videojs_player.liveDisplay != null) {
             if (this.liveVideo == false) {
                 console.log('Video player is live.');
             }
             this.liveVideo = true;
-        } else if (this.videojs_player.liveTracker.behindLiveEdge()) {
+        } else if ((this.videojs_player.liveTracker != null && this.videojs_player.liveTracker.behindLiveEdge()) || this.videojs_player.liveDisplay == null) {
             if (this.liveVideo == true) {
                 console.log('Video player is not live.');
             }
