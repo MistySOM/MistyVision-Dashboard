@@ -17,20 +17,25 @@ export default class VideoPlayer {
             }, () => {
                 console.log('Video-js is ready!');
 
-                videojs_player.liveTracker.on('liveedgechange', () => {
-                    if (videojs_player.liveTracker.atLiveEdge()) {
-                        if (this.liveVideo == false) {
-                            console.log('Video player is live.');
-                        }
-                        this.liveVideo = true;
-                    } else if (videojs_player.liveTracker.behindLiveEdge()) {
-                        if (this.liveVideo == true) {
-                            console.log('Video player is not live.');
-                        }
-                        this.liveVideo = false;
-                    }
-                });
+                videojs_player.on('timeupdate', this.change);
+                videojs_player.on('durationchange', this.change);
+                videojs_player.on('play', this.change);
+                videojs_player.on('pause', this.change);
             });
         });
     };
+
+    change() {
+        if (videojs_player.liveTracker.atLiveEdge()) {
+            if (this.liveVideo == false) {
+                console.log('Video player is live.');
+            }
+            this.liveVideo = true;
+        } else if (videojs_player.liveTracker.behindLiveEdge()) {
+            if (this.liveVideo == true) {
+                console.log('Video player is not live.');
+            }
+            this.liveVideo = false;
+        }
+    }
 }

@@ -22,9 +22,7 @@ export default class ChartView {
             cutout: '90%',
             rotation: 90,
             responsive: true,
-            onHover: function(event, elements) {
-                event.stopPropagation();
-            },
+            events: null,
             layout: {
                 padding: {
                     top: 40,
@@ -36,7 +34,7 @@ export default class ChartView {
             plugins: {
                 legend: {
                     position: 'bottom',
-                    onClick: (e) => e.stopPropagation(),
+                    events: null,
                     labels: {
                         usePointStyle: true,
                         color: 'white',
