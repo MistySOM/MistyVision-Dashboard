@@ -1,5 +1,9 @@
-.video-js .vjs-volume-panel,
-.video-js .vjs-picture-in-picture-control
-{
+/* Hide the volume control panel in the Video.js player */
+.video-js .vjs-volume-panel {
+    display: none;
+}
+
+/* Hide the picture-in-picture control in the Video.js player */
+.video-js .vjs-picture-in-picture-control {
     display: none;
 }
