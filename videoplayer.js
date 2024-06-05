@@ -17,7 +17,7 @@ export default class VideoPlayer {
             }, () => {
                 console.log('Video-js is ready!');
 
-                videojs_player.on('liveedgechange', () => {
+                videojs_player.liveTracker.on('liveedgechange', () => {
                     if (videojs_player.liveTracker.atLiveEdge()) {
                         if (this.liveVideo == false) {
                             console.log('Video player is live.');
