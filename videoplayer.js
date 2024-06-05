@@ -16,10 +16,8 @@ export default class VideoPlayer {
                 sources: [ source ]
             }, () => {
                 console.log('Video-js is ready!');
-                const latencyCompensator = new LatencyCompensator(videojs_player);
-                latencyCompensator.enable();
 
-                videojs_player.on('timeupdate', () => {
+                videojs_player.on('liveedgechange', () => {
                     if (videojs_player.liveTracker.atLiveEdge()) {
                         if (this.liveVideo == false) {
                             console.log('Video player is live.');
