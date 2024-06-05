@@ -18,12 +18,12 @@ export default class VideoPlayer {
                 console.log('Video-js is ready!');
 
                 const change = () => {
-                    if ((videojs_player.liveTracker != null && videojs_player.liveTracker.atLiveEdge()) || videojs_player.liveDisplay != null) {
+                    if (videojs_player.liveTracker.atLiveEdge() || (videojs_player.duration() === Infinity && videojs_player.playing()) {
                         if (this.liveVideo == false) {
                             console.log('Video player is live.');
                         }
                         this.liveVideo = true;
-                    } else if ((videojs_player.liveTracker != null && videojs_player.liveTracker.behindLiveEdge()) || videojs_player.liveDisplay == null) {
+                    } else if (videojs_player.liveTracker.behindLiveEdge() || !(videojs_player.duration() === Infinity && videojs_player.playing()) {
                         if (this.liveVideo == true) {
                             console.log('Video player is not live.');
                         }
