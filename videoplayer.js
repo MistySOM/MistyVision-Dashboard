@@ -6,7 +6,7 @@ export default class VideoPlayer {
     }
 
     init() {
-        fetch("https://mistyvisionfunctionapp.azurewebsites.net/api/getliveeventoutputhls", {redirect:'follow'}).then(response => {
+        fetch("https://mh11-media-bucket.s3.us-west-2.amazonaws.com/hls/manifest.m3u8", {redirect:'follow'}).then(response => {
             console.log(response.url);
             const source = { src:response.url, type:'application/x-mpegURL' }; // Create a source object for the HLS stream
 
