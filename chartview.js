@@ -28,9 +28,7 @@ export default class ChartView {
             cutout: '90%', // Define the cutout size for the doughnut chart
             rotation: 90,
             responsive: true,
-            onHover: function(event, elements) {
-                event.stopPropagation(); // Stop event propagation on hover
-            },
+            events: null,
             layout: {
                 padding: {
                     top: 40,
@@ -42,7 +40,7 @@ export default class ChartView {
             plugins: {
                 legend: {
                     position: 'bottom',
-                    onClick: (e) => e.stopPropagation(), // Prevent clicking on legend items
+                    events: null,
                     labels: {
                         usePointStyle: true,
                         color: 'white',

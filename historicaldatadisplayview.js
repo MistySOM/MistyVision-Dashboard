@@ -111,8 +111,24 @@ export default class HistoricalDataDisplayView {
                 document.getElementById(this.videoURLId).setAttribute('src', 'javascript:void(0)');
             } else {
                 this.videoURL = this.model.videoURLs[i];
-                document.getElementById(this.videoURLId).setAttribute('src', this.videoURL);
-                document.getElementById(this.videoPlayerId).load();
+                const videoPlayerElement = document.getElementById(this.videoPlayerId);
+
+                // Initialize the mpegts.js player with the specified options and source
+                const  mediaDataSource = {
+                    type: 'mse',
+                    url: this.videoURL,
+                    duration: 3600000,
+                    filesize: 2500000000,
+                    accurateSeek: true,
+                };
+                const player = mpegts.createPlayer(mediaDataSource, {
+                    enableWorker: true,
+                    enableWorkerForMSE: true,
+                    lazyLoadMaxDuration: 5,
+                    seekType: 'range',
+                });
+                player.attachMediaElement(videoPlayerElement);
+                player.load();
             }
         }
     }
