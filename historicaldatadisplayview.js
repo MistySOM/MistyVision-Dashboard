@@ -28,6 +28,7 @@ export default class HistoricalDataDisplayView {
     csvURLId;
     videoURLId;
     videoPlayerId;
+    downloadButtonId;
 
     // Constructor to initialize the model and subscribe to updates
     constructor(model) {
@@ -85,6 +86,7 @@ export default class HistoricalDataDisplayView {
             this.csvURLId = "csv" + (i + 1);
             this.videoURLId = "video" + (i + 1);
             this.videoPlayerId = "videoplayer" + (i + 1);
+            this.downloadButtonId = "vid" + (i + 1);
 
             // Update DOM elements with historical data
             document.getElementById(this.dateId).innerHTML = this.pstDate;
@@ -109,8 +111,11 @@ export default class HistoricalDataDisplayView {
             if (this.model.videoURLs[i] == '') {
                 this.videoURL = '';
                 document.getElementById(this.videoURLId).setAttribute('src', 'javascript:void(0)');
+                document.getElementById(this.downloadButtonId).setAttribute('href', 'javascript:void(0)');
             } else {
                 this.videoURL = this.model.videoURLs[i];
+                document.getElementById(this.downloadButtonId).setAttribute('href', this.videoURL);
+
                 const videoPlayerElement = document.getElementById(this.videoPlayerId);
 
                 // Initialize the mpegts.js player with the specified options and source
