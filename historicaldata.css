@@ -106,7 +106,7 @@ main {
 table {
     flex: 1; /* Grow to fill remaining space */
     display: flex; /* Use flexbox for layout */
-    padding: 5vh;
+    padding: 3vh;
 }
 
 /* Table body styles */
@@ -144,14 +144,14 @@ td {
     display: flex; /* Use flexbox for layout */
     margin: 0; /* Remove default margin */
     font-size: 2vw;
-    margin-bottom: 0.5vh;
+    margin-bottom: 0.2vh;
 }
 
 /* Vehicle count styles */
 .vehicle-count p {
     display: flex; /* Use flexbox for layout */
     font-size: 1vw;
-    margin: 0.3vh;
+    margin: 0.1vh;
     justify-content: center; /* Center items horizontally */
 }
 
@@ -186,7 +186,7 @@ td {
     text-decoration: none; /* Remove underline */
     color: white;
     font-size: 0.9vw;
-    padding: 1vh 1.5vh;
+    padding: 0.7vh 1.5vh;
     background-color: #555;
     border-radius: 0.8vw;
     transition: background-color 0.3s, color 0.3s; /* Add transition effect */
