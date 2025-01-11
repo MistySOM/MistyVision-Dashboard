@@ -8,8 +8,8 @@ As part of MistyWest’s performance evaluation of MistySOM, an internally devel
 
 *The object detection camera system is no longer running, but the Dashboard UI can still be seen here: https://dash.mistysom.com/*
 
-## Features
-- MistyVision Dashboard Main Page
+## Feature
+### MistyVision Dashboard Main Page
   - Menu Sidebar
   - Live Object Detection Video Stream with Playback
   - Video Stream Information Display
@@ -35,7 +35,7 @@ As part of MistyWest’s performance evaluation of MistySOM, an internally devel
     <img src="images/MV%20-%20Offline.png" alt="MV - Offline" width="800"/>
   </div>
 
-- Historical Data Page
+### Historical Data Page
   - Real-time Update For the Past 8 Hours:
     - Vehicle Count for Each Vehicle Type
     - Video Playback
