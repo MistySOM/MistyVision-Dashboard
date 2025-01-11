@@ -66,15 +66,15 @@ Similarly to the Dashboard Main Page, the Historical Data Page also implements t
 All the styling for both the MistyVision Dashboard pages is done in CSS. The MistyVision Dashboard is made responsive using viewport heights and viewport widths in CSS.
 
 ## Some Technical Challenges and Achievements
-1. Implemention of Model-View-ViewModel architecture for Javascript Codebase
+1. Implemention of Model-View-ViewModel architecture for Javascript codebase
 2. Real-time data updating and handling with use of the Observer Pattern
-3. Data Visualization with custom Chart.js doughnut chart features
+3. Data visualization with custom Chart.js doughnut chart features
 4. Customizing Chart.js doughnut chart to reflect UI/UX designer's vision
-5. Responsive and Adaptable layout and web page design
+5. Responsive and adaptable layout and web page design
 6. Integration of live video stream with playback
-7. Consistent Dashboard styling using CSS
+7. Consistent dashboard styling using CSS
 
-## To-Do's:
+## To-Do's & Potential Improvements:
 1. Pre-loading data for the Historical Data Page to reduce load times especially when displaying large datasets
 2. Responsive web design on mobile devices
 3. Improve vehicle data visualizations with additional metrics
