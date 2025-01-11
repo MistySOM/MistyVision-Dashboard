@@ -1,7 +1,7 @@
 # MistyVision-Dashboard
 As part of MistyWest’s performance evaluation of MistySOM, an internally developed computer vision SOM (System-on-Module), an object detection model was deployed to identify vehicle types on a Vancouver road in real-time using a solar-driven camera system. 
 <div align="center">
-  <img src="images/MistyVision%20Dashboard%20Camera%20Setup.jpeg" alt="MistyVision Dashboard Camera Setup" width="500"/>
+  <img src="images/MistyVision%20Dashboard%20Camera%20Setup.jpg" alt="MistyVision Dashboard Camera Setup" width="500"/>
 </div>
 
 **MistyVision Dashboard is a responsive vehicle type identification website that displays the real-time object detection video feed, its information, a dynamic visualization of vehicle type counts, as well as a page for historical data and videos downloads.**
