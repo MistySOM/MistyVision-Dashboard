@@ -36,7 +36,7 @@ As part of MistyWest’s performance evaluation of MistySOM, an internally devel
   </div>
 
 ### Historical Data Page
-  - Real-time Update For the Past 8 Hours:
+  - Real-time Data Update For the Past 8 Hours, On the Hour:
     - Vehicle Count for Each Vehicle Type
     - Video Playback
     - Vehicle Count Data CSV Export
@@ -51,7 +51,7 @@ As part of MistyWest’s performance evaluation of MistySOM, an internally devel
 The MistyVision Dashboard is built entirely using JavaScript, HTML, and CSS. All the backend services are stored in Azure.
 
 ### <ins>MistyVision Dashboard Main Page<ins>
-The Dashboard Main Page uses **object oriented programming principles** and implements the **Model-View-ViewModel** architecture to set up all the different classes to enhance scalibility and maintainability. The *Model* for the main page fetches all the video and vehicle type count data. It also sets up listeners subscription to notify all subscribed listeners using the **Observer Pattern**. .then() promise chaining is used to fetch a WebSocket connection token from an API and establishes a connection. The incoming WebSocket messages are parsed as JSON and update the video related properties and different vehicle type counts.
+The Dashboard Main Page uses **object oriented programming principles** and implements the **Model-View-ViewModel** architecture to set up all the different classes to enhance scalability and maintainability. The *Model* for the main page fetches all the video and vehicle type count data. It also sets up listeners subscription to notify all subscribed listeners using the **Observer Pattern**. .then() promise chaining is used to fetch a WebSocket connection token from an API and establishes a connection. The incoming WebSocket messages are parsed as JSON and update the video related properties and different vehicle type counts.
 A separate video player *Model* fetches the live video, sets up the video.js player, and sets up an event listener for various video player events including whether the video is live or not to monitor the video's status. 
 
 The video related properties from the *Model* are then used in the *DataDisplayView* class to update the Dashboard Main Page user interface and the live video player, acting as the *View* in MVVM. By subscribing to the *Model*, the *DataDisplayView* is able to update the UI whenever the *Model's* data changes. This class also sets the "Device Status" between ON, OFFLINE, NO LIVE VIDEO, or NO LIVE DATA based on whether the video is live and JSON data is coming through.
