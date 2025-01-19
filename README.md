@@ -71,8 +71,7 @@ All the styling for both the MistyVision Dashboard pages is done in CSS. The Mis
 3. Data visualization with custom Chart.js doughnut chart features
 4. Customizing Chart.js doughnut chart to reflect UI/UX designer's vision
 5. Responsive and adaptable layout and web page design
-6. Integration of live video stream with playback
-7. Consistent dashboard styling using CSS
+6. Consistent dashboard styling using CSS
 
 ## To-Do's & Potential Improvements:
 1. Pre-loading data for the Historical Data Page to reduce load times especially when displaying large datasets
