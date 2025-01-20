@@ -19,7 +19,7 @@ As part of MistyWest’s performance evaluation of MistySOM, an internally devel
   </div>
 
 - Device Status reflects 4 different states:
-  - Live
+  - On (Live Video & Live Data) - as shown above
   - No Live Video
   <div align="center">
     <img src="images/MV%20-%20No%20Live%20Video.png" alt="MV - No Live Video" width="800"/>
@@ -51,19 +51,19 @@ As part of MistyWest’s performance evaluation of MistySOM, an internally devel
 The MistyVision Dashboard is built entirely using JavaScript, HTML, and CSS. All the backend services are stored in Azure.
 
 ### <ins>MistyVision Dashboard Main Page<ins>
-The Dashboard Main Page is built using **object oriented programming principles** and implements the **Model-View-ViewModel** architecture to set up all the different classes to enhance scalability and maintainability. The *Model* for the main page fetches all the video and vehicle type count data. It also sets up listeners subscription to notify all subscribed listeners using the **Observer Pattern**. .then() promise chaining is used to fetch a WebSocket connection token from an API and establishes a connection. The incoming WebSocket messages are parsed as JSON and update the video related properties and different vehicle type counts.
-A separate video player *Model* fetches the live video, sets up the video.js player, and sets up an event listener for various video player events including whether the video is live or not to monitor the video's status. 
+The Dashboard Main Page is built using **object oriented programming principles** and implements the **Model-View-ViewModel** architecture to set up all the different classes to enhance scalability and maintainability. The *Model* for the main page fetches all the video and vehicle type count data. It also sets up listeners subscription to notify all subscribed listeners using the **Observer pattern**. .then() promise chaining is used to fetch a WebSocket connection token from an API and establishes a connection. The incoming WebSocket messages are parsed as JSON and update the video related properties and different vehicle type counts.
+A separate video player *Model* fetches the live video, sets up the video player, and sets up an event listener for various video player events including whether the video is live or not to monitor the video's status. 
 
-The video related properties from the *Model* are then used in the *DataDisplayView* class to update the Dashboard Main Page user interface and the live video player, acting as the *View* in MVVM. By subscribing to the *Model*, the *DataDisplayView* is able to update the UI whenever the *Model's* data changes. This class also sets the "Device Status" between ON, OFFLINE, NO LIVE VIDEO, or NO LIVE DATA based on whether the video is live and JSON data is coming through.
+The video related properties from the *Model* are then used in the *DataDisplayView* class to update the Dashboard Main Page user interface and the live video player, acting as the *View* in MVVM. By subscribing to the *Model*, the *DataDisplayView* is able to update the UI whenever the *Model* receives new data. This class also sets the "Device Status" between ON, OFFLINE, NO LIVE VIDEO, or NO LIVE DATA based on whether the video is live and JSON data is coming through.
 
-The vehicle type counts properties from the *Model* are processed separately in the *ChartViewModel* class which is the *ViewModel* in MVVM. This class also subscribes to the *Model* and processes the data from the *Model* and prepares it for the customized doughnut chart display on the Dashboard Main Page. Once the chart data is updated, the *View* component responsible for rendering the doughnut chart is notified that data has changed and the chart needs to be refreshed. This allows the *View* to focus only on displaying data, while the *ChartViewModel* handles the data manipulation.
+The vehicle type counts properties from the *Model* are updated separately in the *ChartViewModel* class which is the *ViewModel* in MVVM. This class also subscribes to the *Model*, which updates and prepares the doughnut chart data that is displayed on the Dashboard Main Page. Once the chart data is updated, the *ChartView* class responsible for rendering the doughnut chart is notified that data has changed and the chart needs to be refreshed. This allows the *View* to focus only on displaying data.
 
-The *ChartView* class represents the *View* in MVVM. Here it displays *ChartViewModel's* data using a Chart.js customized doughnut chart with features including centre text, doughnut segment labels, and vehicle type legend.
+The *ChartView* class represents the *View* in MVVM. Here it displays *ChartViewModel's* data using a Chart.js customized doughnut chart with features including center text showing vehicle count per hour, a custom chart legend, and dynamic doughnut arc labels displaying the live count for each vehicle type.
 
 ### <ins>Historical Data Page<ins>
-Similarly to the Dashboard Main Page, the Historical Data Page also implements the Model-View-ViewModel architecture. The Historical Data Page is split into the past 8 hours, with the vehicle count for each vehicle type, video recording, vehicle count data CSV and video download displayed for each hour. The historical data is refreshed in real time every hour on the hour as new vehicle count and video data is recorded. A *HistoricalDataModel* is set up and fetches video and vehicle type count data for the past 8 hours which are stored in Azure. Due to the simplicity of the Historical Data Page setup, a separate *ViewModel* was not used. Instead, the data received in the *HistoricalDataModel* is processed directly within the *HistoricalDataDisplayView* and displayed directly in the UI. 
+Similarly to the Dashboard Main Page, the Historical Data Page also implements the Model-View-ViewModel architecture. The Historical Data Page is split into the past 8 hours, with the vehicle count for each vehicle type, video recording, vehicle count data CSV and video download displayed for each hour. The historical data updates every hour on the hour as new vehicle counts and video data are recorded. A *HistoricalDataModel* is set up and fetches video and vehicle type count data for the past 8 hours that are stored in Azure. Due to the simplicity of the Historical Data Page setup, a separate *ViewModel* was not used. Instead, the data received in the *HistoricalDataModel* is processed directly within the *HistoricalDataDisplayView* and displayed directly in the UI. 
 
-All the styling for both the MistyVision Dashboard pages is done in CSS. The MistyVision Dashboard is made responsive using viewport heights and viewport widths in CSS.
+All the styling for the MistyVision Dashboard pages is done in CSS. The MistyVision Dashboard is made responsive using viewport heights and viewport widths in CSS.
 
 ## Some Technical Challenges and Achievements
 1. Implemention of Model-View-ViewModel architecture for Javascript codebase
