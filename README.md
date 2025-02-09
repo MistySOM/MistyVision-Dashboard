@@ -6,9 +6,7 @@ As part of MistyWest’s performance evaluation of MistySOM, an internally devel
 
 **MistyVision Dashboard is a responsive vehicle type identification website that displays the real-time object detection video feed, its information, a dynamic visualization of vehicle type counts, as well as a page for historical data and videos downloads.**
 
-*The object detection camera system is no longer running, but the Dashboard UI can still be seen here: https://dash.mistysom.com/*
-
-## Feature
+## Features
 ### MistyVision Dashboard Main Page
   - Menu Sidebar
   - Live Object Detection Video Stream with Playback
