@@ -1,4 +1,6 @@
 # MistyVision-Dashboard
+**Check it out here**: https://dash.mistysom.com
+
 As part of MistyWest’s performance evaluation of MistySOM, an internally developed computer vision SOM (System-on-Module), an object detection model was deployed to identify vehicle types on a Vancouver road in real-time using a solar-driven camera system. 
 <div align="center">
   <img src="images/MistyVision%20Dashboard%20Camera%20Setup.jpg" alt="MistyVision Dashboard Camera Setup" width="500"/>
