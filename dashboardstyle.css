@@ -162,6 +162,7 @@ main {
 
 /* Video.js player */
 .video-js {
+    border: none;
     width: 34vw;
     height: 25.5vw;
 }

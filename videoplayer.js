@@ -6,6 +6,9 @@ export default class VideoPlayer {
     }
 
     init() {
+        // Workaround: Using iframe instead of video-js because it was stopping often.
+        this.liveVideo = true;
+        return
         fetch("https://mistyvisionfunctionapp.azurewebsites.net/api/getliveeventoutputhls", {redirect:'follow'}).then(response => {
             console.log(response.url);
             const source = { src:response.url, type:'application/x-mpegURL' }; // Create a source object for the HLS stream
